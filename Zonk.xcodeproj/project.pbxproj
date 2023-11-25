@@ -1,0 +1,627 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
+		9C8BF4A72B10210F000C256A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MainView.swift */; };
+		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
+		9C8BF4AC2B102110000C256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4AB2B102110000C256A /* Preview Assets.xcassets */; };
+		9C8BF4B62B102110000C256A /* ZonkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4B52B102110000C256A /* ZonkTests.swift */; };
+		9C8BF4C02B102110000C256A /* ZonkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4BF2B102110000C256A /* ZonkUITests.swift */; };
+		9C8BF4C22B102110000C256A /* ZonkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4C12B102110000C256A /* ZonkUITestsLaunchTests.swift */; };
+		9C8BF4D02B102353000C256A /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4CF2B102353000C256A /* GameController.swift */; };
+		9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D22B1023CD000C256A /* Dice.swift */; };
+		9C8BF4D62B103C63000C256A /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D52B103C63000C256A /* RollView.swift */; };
+		9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D72B103E6F000C256A /* DiceView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9C8BF4B22B102110000C256A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8BF4992B10210F000C256A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8BF4A02B10210F000C256A;
+			remoteInfo = Zonk;
+		};
+		9C8BF4BC2B102110000C256A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9C8BF4992B10210F000C256A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8BF4A02B10210F000C256A;
+			remoteInfo = Zonk;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
+		9C8BF4A62B10210F000C256A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		9C8BF4A82B102110000C256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9C8BF4AB2B102110000C256A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		9C8BF4B12B102110000C256A /* ZonkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZonkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8BF4B52B102110000C256A /* ZonkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkTests.swift; sourceTree = "<group>"; };
+		9C8BF4BB2B102110000C256A /* ZonkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZonkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9C8BF4BF2B102110000C256A /* ZonkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkUITests.swift; sourceTree = "<group>"; };
+		9C8BF4C12B102110000C256A /* ZonkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		9C8BF4CF2B102353000C256A /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		9C8BF4D22B1023CD000C256A /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		9C8BF4D52B103C63000C256A /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
+		9C8BF4D72B103E6F000C256A /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9C8BF49E2B10210F000C256A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4AE2B102110000C256A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4B82B102110000C256A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9C8BF4982B10210F000C256A = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4A32B10210F000C256A /* Zonk */,
+				9C8BF4B42B102110000C256A /* ZonkTests */,
+				9C8BF4BE2B102110000C256A /* ZonkUITests */,
+				9C8BF4A22B10210F000C256A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9C8BF4A22B10210F000C256A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4A12B10210F000C256A /* Zonk.app */,
+				9C8BF4B12B102110000C256A /* ZonkTests.xctest */,
+				9C8BF4BB2B102110000C256A /* ZonkUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9C8BF4A32B10210F000C256A /* Zonk */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4A42B10210F000C256A /* ZonkApp.swift */,
+				9C8BF4D12B1023C2000C256A /* Models */,
+				9C8BF4CE2B102342000C256A /* Controller */,
+				9C8BF4D42B103C49000C256A /* Views */,
+				9C8BF4A82B102110000C256A /* Assets.xcassets */,
+				9C8BF4AA2B102110000C256A /* Preview Content */,
+			);
+			path = Zonk;
+			sourceTree = "<group>";
+		};
+		9C8BF4AA2B102110000C256A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4AB2B102110000C256A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		9C8BF4B42B102110000C256A /* ZonkTests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4B52B102110000C256A /* ZonkTests.swift */,
+			);
+			path = ZonkTests;
+			sourceTree = "<group>";
+		};
+		9C8BF4BE2B102110000C256A /* ZonkUITests */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4BF2B102110000C256A /* ZonkUITests.swift */,
+				9C8BF4C12B102110000C256A /* ZonkUITestsLaunchTests.swift */,
+			);
+			path = ZonkUITests;
+			sourceTree = "<group>";
+		};
+		9C8BF4CE2B102342000C256A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4CF2B102353000C256A /* GameController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9C8BF4D12B1023C2000C256A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4D22B1023CD000C256A /* Dice.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9C8BF4D42B103C49000C256A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4A62B10210F000C256A /* MainView.swift */,
+				9C8BF4D52B103C63000C256A /* RollView.swift */,
+				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9C8BF4A02B10210F000C256A /* Zonk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8BF4C52B102110000C256A /* Build configuration list for PBXNativeTarget "Zonk" */;
+			buildPhases = (
+				9C8BF49D2B10210F000C256A /* Sources */,
+				9C8BF49E2B10210F000C256A /* Frameworks */,
+				9C8BF49F2B10210F000C256A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Zonk;
+			productName = Zonk;
+			productReference = 9C8BF4A12B10210F000C256A /* Zonk.app */;
+			productType = "com.apple.product-type.application";
+		};
+		9C8BF4B02B102110000C256A /* ZonkTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8BF4C82B102110000C256A /* Build configuration list for PBXNativeTarget "ZonkTests" */;
+			buildPhases = (
+				9C8BF4AD2B102110000C256A /* Sources */,
+				9C8BF4AE2B102110000C256A /* Frameworks */,
+				9C8BF4AF2B102110000C256A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8BF4B32B102110000C256A /* PBXTargetDependency */,
+			);
+			name = ZonkTests;
+			productName = ZonkTests;
+			productReference = 9C8BF4B12B102110000C256A /* ZonkTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		9C8BF4BA2B102110000C256A /* ZonkUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9C8BF4CB2B102110000C256A /* Build configuration list for PBXNativeTarget "ZonkUITests" */;
+			buildPhases = (
+				9C8BF4B72B102110000C256A /* Sources */,
+				9C8BF4B82B102110000C256A /* Frameworks */,
+				9C8BF4B92B102110000C256A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9C8BF4BD2B102110000C256A /* PBXTargetDependency */,
+			);
+			name = ZonkUITests;
+			productName = ZonkUITests;
+			productReference = 9C8BF4BB2B102110000C256A /* ZonkUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9C8BF4992B10210F000C256A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					9C8BF4A02B10210F000C256A = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					9C8BF4B02B102110000C256A = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 9C8BF4A02B10210F000C256A;
+					};
+					9C8BF4BA2B102110000C256A = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = 9C8BF4A02B10210F000C256A;
+					};
+				};
+			};
+			buildConfigurationList = 9C8BF49C2B10210F000C256A /* Build configuration list for PBXProject "Zonk" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9C8BF4982B10210F000C256A;
+			productRefGroup = 9C8BF4A22B10210F000C256A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9C8BF4A02B10210F000C256A /* Zonk */,
+				9C8BF4B02B102110000C256A /* ZonkTests */,
+				9C8BF4BA2B102110000C256A /* ZonkUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9C8BF49F2B10210F000C256A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8BF4AC2B102110000C256A /* Preview Assets.xcassets in Resources */,
+				9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4AF2B102110000C256A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4B92B102110000C256A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9C8BF49D2B10210F000C256A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8BF4D02B102353000C256A /* GameController.swift in Sources */,
+				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
+				9C8BF4A72B10210F000C256A /* MainView.swift in Sources */,
+				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
+				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
+				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4AD2B102110000C256A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8BF4B62B102110000C256A /* ZonkTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9C8BF4B72B102110000C256A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9C8BF4C22B102110000C256A /* ZonkUITestsLaunchTests.swift in Sources */,
+				9C8BF4C02B102110000C256A /* ZonkUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9C8BF4B32B102110000C256A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8BF4A02B10210F000C256A /* Zonk */;
+			targetProxy = 9C8BF4B22B102110000C256A /* PBXContainerItemProxy */;
+		};
+		9C8BF4BD2B102110000C256A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9C8BF4A02B10210F000C256A /* Zonk */;
+			targetProxy = 9C8BF4BC2B102110000C256A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		9C8BF4C32B102110000C256A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		9C8BF4C42B102110000C256A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C8BF4C62B102110000C256A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.Zonk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		9C8BF4C72B102110000C256A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.Zonk;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		9C8BF4C92B102110000C256A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.ZonkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zonk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zonk";
+			};
+			name = Debug;
+		};
+		9C8BF4CA2B102110000C256A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.ZonkTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Zonk.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Zonk";
+			};
+			name = Release;
+		};
+		9C8BF4CC2B102110000C256A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.ZonkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zonk;
+			};
+			name = Debug;
+		};
+		9C8BF4CD2B102110000C256A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.atu.ZonkUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Zonk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9C8BF49C2B10210F000C256A /* Build configuration list for PBXProject "Zonk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8BF4C32B102110000C256A /* Debug */,
+				9C8BF4C42B102110000C256A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8BF4C52B102110000C256A /* Build configuration list for PBXNativeTarget "Zonk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8BF4C62B102110000C256A /* Debug */,
+				9C8BF4C72B102110000C256A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8BF4C82B102110000C256A /* Build configuration list for PBXNativeTarget "ZonkTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8BF4C92B102110000C256A /* Debug */,
+				9C8BF4CA2B102110000C256A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9C8BF4CB2B102110000C256A /* Build configuration list for PBXNativeTarget "ZonkUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C8BF4CC2B102110000C256A /* Debug */,
+				9C8BF4CD2B102110000C256A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9C8BF4992B10210F000C256A /* Project object */;
+}
