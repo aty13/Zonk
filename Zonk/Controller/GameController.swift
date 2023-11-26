@@ -17,6 +17,7 @@ struct GameController {
     var currentRoll: [Dice]
     var currentTriplets: [Dice]
     var chosenDices: [Dice]
+    var chosenDicesShort: [Dice]
     
     init() {
         score = 0
@@ -28,11 +29,11 @@ struct GameController {
         currentRoll = []
         currentTriplets = []
         chosenDices = []
+        chosenDicesShort = []
     }
  
     
 //    while !zonk {
-
 //        roll
 //        handledicetap
 //        save/next move
@@ -67,14 +68,28 @@ struct GameController {
     }
     
     func checkForZonk() -> Bool {
-        return !canRoll && !canSave
+        let tripletsFound = areThereAnyTriplets().found
+        let containsOneOrFive = currentRoll.contains { $0.value == 1 || $0.value == 5 }
+        
+        return !tripletsFound && !containsOneOrFive
+    }
+    
+    mutating func itIsZonk() {
+        dicesAmount = 6
+        chosenDices = []
+        currentTriplets = []
+        currentRoll = []
+        unsavedResult = 0
+        zonk = false
+        canRoll = true
+        canSave = false
     }
     
     mutating func handleDiceTap(_ dice: Dice) {
         
-        if dice.value == 1 || dice.value == 5 || (areThereAnyTriplets().found && currentTriplets.contains(where: { $0.value == dice.value })) {
+        if dice.value == 1 || dice.value == 5 || currentTriplets.contains(where: { $0.value == dice.value }) {
             chosenDices.append(dice)
-            
+            chosenDicesShort.append(dice)
             
             if let indexToRemove = currentRoll.firstIndex(of: dice) {
                 currentRoll.remove(at: indexToRemove)
@@ -106,30 +121,81 @@ struct GameController {
         
         return (found: hasTriplets, values: hasTriplets ? triplets : nil)
     }
-    
-    func saveScore() {
-        
-    }
  
     mutating func addPreScore(dice: Dice) {
-        let scoringTable = [
+        let scoringTable: [Int: Int] = [
             1: 100,
             5: 50,
-            7: dice.value * 10,
+            7: dice.value * 100,
             8: dice.value * 10 + dice.value * 10,
             9: dice.value * 10 + dice.value * 10 + dice.value * 10,
             10: dice.value * 10 + dice.value * 10 + dice.value * 10 + dice.value * 10,
-            11 : 750,
-            12 : 1000
+    //        11 : 750,
+    //        12 : 1000
         ]
         
+        let sameDices = chosenDices.filter { $0.value == dice.value }
+
         switch dice.value {
         case 1:
-            unsavedResult += scoringTable[1]!
+            if sameDices.count < 3 {
+                unsavedResult += scoringTable[1]!
+            } else {
+                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 1000, 4: 2000, 5: 3000, 6: 4000])
+            }
+            
         case 5:
-            unsavedResult += scoringTable[5]!
+            if sameDices.count < 3 {
+                unsavedResult += scoringTable[5]!
+            } else {
+                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 500, 4: 800, 5: 1300, 6: 1800])
+            }
+            
+        default:
+            updateResultForSameDices(
+                sameDicesAmount: sameDices.count,
+                values: [
+                    3: scoringTable[7]!,
+                    4: scoringTable[8]!,
+                    5: scoringTable[9]!,
+                    6: scoringTable[10]!
+                ]
+            )
+        }
+        
+        if unsavedResult >= 300 {
+            canSave = true
+        }
+    }
+
+    private mutating func updateResultForSameDices(sameDicesAmount: Int, values: [Int: Int]) {
+        switch sameDicesAmount {
+        case 3, 4, 5, 6:
+            unsavedResult += values[sameDicesAmount]!
         default:
             return
         }
+    }
+    
+    mutating func saveScore() {
+        score += unsavedResult
+        unsavedResult = 0
+        dicesAmount = 6
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        canSave = false
+    }
+    
+    mutating func restart() {
+        score = 0
+        unsavedResult = 0
+        dicesAmount = 6
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        canSave = false
+        canRoll = true
+        zonk = false
     }
 }

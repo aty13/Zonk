@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C07341C2B12AF93006874F8 /* ZonkView.swift */; };
 		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
 		9C8BF4A72B10210F000C256A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MainView.swift */; };
 		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C07341C2B12AF93006874F8 /* ZonkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkView.swift; sourceTree = "<group>"; };
 		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
 		9C8BF4A62B10210F000C256A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				9C8BF4A62B10210F000C256A /* MainView.swift */,
 				9C8BF4D52B103C63000C256A /* RollView.swift */,
 				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
+				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				9C8BF4D02B102353000C256A /* GameController.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
 				9C8BF4A72B10210F000C256A /* MainView.swift in Sources */,
+				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
 				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
