@@ -12,28 +12,45 @@ struct MainView: View {
         NavigationView {
             VStack {
                 Spacer()
-                        
+                
                 Text("Welcome to Zonk Game")
                     .font(.title)
                     .fontWeight(.bold)
                     .foregroundColor(.blue)
                 
                 Spacer()
-                        
+                
                 NavigationLink(destination: RollView()) {
-                    Text("Start Game")
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundColor(.white)
-                        .padding()
-                        .background(Color.blue)
-                        .cornerRadius(10)
+                    Text("Single Player")
+                        .modifier(BlueButtonStyle())
                 }
-                        
+                
+                NavigationLink(destination: RollView()) {
+                    Text("Hot seat")
+                        .modifier(BlueButtonStyle())
+                }
+                
+                NavigationLink(destination: RollView()) {
+                    Text("Multiplayer")
+                        .modifier(BlueButtonStyle())
+                }
+                
                 Spacer()
             }
             .padding()
             .navigationBarHidden(true)
+        }
+    }
+
+    struct BlueButtonStyle: ViewModifier {
+        func body(content: Content) -> some View {
+            content
+                .font(.headline)
+                .fontWeight(.semibold)
+                .foregroundColor(.white)
+                .padding()
+                .background(Color.blue)
+                .cornerRadius(10)
         }
     }
 }

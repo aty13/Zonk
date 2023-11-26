@@ -39,6 +39,7 @@ struct GameController {
 //        save/next move
     
     mutating func roll() {
+        chosenDicesShort = []
         var result: [Dice] = []
         canRoll = false
         
@@ -127,40 +128,42 @@ struct GameController {
             1: 100,
             5: 50,
             7: dice.value * 100,
-            8: dice.value * 10 + dice.value * 10,
-            9: dice.value * 10 + dice.value * 10 + dice.value * 10,
-            10: dice.value * 10 + dice.value * 10 + dice.value * 10 + dice.value * 10,
+//            8: dice.value * 100,
+//            9: dice.value * 100 + dice.value * 100,
+//            10: dice.value * 100 + dice.value * 100 + dice.value * 100,
     //        11 : 750,
     //        12 : 1000
         ]
         
-        let sameDices = chosenDices.filter { $0.value == dice.value }
+        let sameDices = chosenDicesShort.filter { $0.value == dice.value }
 
         switch dice.value {
         case 1:
             if sameDices.count < 3 {
                 unsavedResult += scoringTable[1]!
             } else {
-                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 1000, 4: 2000, 5: 3000, 6: 4000])
+                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 800, 4: 1000, 5: 2000, 6: 3000])
             }
             
         case 5:
             if sameDices.count < 3 {
                 unsavedResult += scoringTable[5]!
             } else {
-                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 500, 4: 800, 5: 1300, 6: 1800])
+                updateResultForSameDices(sameDicesAmount: sameDices.count, values: [3: 400, 4: 500, 5: 1000, 6: 1500])
             }
             
         default:
-            updateResultForSameDices(
-                sameDicesAmount: sameDices.count,
-                values: [
-                    3: scoringTable[7]!,
-                    4: scoringTable[8]!,
-                    5: scoringTable[9]!,
-                    6: scoringTable[10]!
-                ]
-            )
+            if sameDices.count >= 3 {
+                updateResultForSameDices(
+                    sameDicesAmount: sameDices.count,
+                    values: [
+                        3: scoringTable[7]!,
+                        4: scoringTable[7]!,
+                        5: scoringTable[7]!,
+                        6: scoringTable[7]!
+                    ]
+                )
+            }
         }
         
         if unsavedResult >= 300 {
