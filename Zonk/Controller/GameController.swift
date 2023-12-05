@@ -7,17 +7,18 @@
 
 import Foundation
 
-struct GameController {
-    var score: Int
-    var unsavedResult: Int
-    var dicesAmount: Int
-    var canRoll: Bool
-    var canSave: Bool
-    var zonk: Bool
-    var currentRoll: [Dice]
-    var currentTriplets: [Dice]
-    var chosenDices: [Dice]
-    var chosenDicesShort: [Dice]
+class GameController: ObservableObject {
+    @Published var score: Int
+    @Published var unsavedResult: Int
+    @Published var dicesAmount: Int
+    @Published var canRoll: Bool
+    @Published var canSave: Bool
+    @Published var zonk: Bool
+    @Published var win: Bool
+    @Published var currentRoll: [Dice]
+    @Published var currentTriplets: [Dice]
+    @Published var chosenDices: [Dice]
+    @Published var chosenDicesShort: [Dice]
     
     init() {
         score = 0
@@ -26,6 +27,7 @@ struct GameController {
         canRoll = true
         canSave = false
         zonk = false
+        win = false
         currentRoll = []
         currentTriplets = []
         chosenDices = []
@@ -38,7 +40,7 @@ struct GameController {
 //        handledicetap
 //        save/next move
     
-    mutating func roll() {
+    func roll() {
         chosenDicesShort = []
         var result: [Dice] = []
         canRoll = false
@@ -75,7 +77,7 @@ struct GameController {
         return !tripletsFound && !containsOneOrFive
     }
     
-    mutating func itIsZonk() {
+    func itIsZonk() {
         dicesAmount = 6
         chosenDices = []
         currentTriplets = []
@@ -86,7 +88,7 @@ struct GameController {
         canSave = false
     }
     
-    mutating func handleDiceTap(_ dice: Dice) {
+    func handleDiceTap(_ dice: Dice) {
         
         if dice.value == 1 || dice.value == 5 || currentTriplets.contains(where: { $0.value == dice.value }) {
             chosenDices.append(dice)
@@ -123,14 +125,11 @@ struct GameController {
         return (found: hasTriplets, values: hasTriplets ? triplets : nil)
     }
  
-    mutating func addPreScore(dice: Dice) {
+    func addPreScore(dice: Dice) {
         let scoringTable: [Int: Int] = [
             1: 100,
             5: 50,
             7: dice.value * 100,
-//            8: dice.value * 100,
-//            9: dice.value * 100 + dice.value * 100,
-//            10: dice.value * 100 + dice.value * 100 + dice.value * 100,
     //        11 : 750,
     //        12 : 1000
         ]
@@ -171,7 +170,7 @@ struct GameController {
         }
     }
 
-    private mutating func updateResultForSameDices(sameDicesAmount: Int, values: [Int: Int]) {
+    private func updateResultForSameDices(sameDicesAmount: Int, values: [Int: Int]) {
         switch sameDicesAmount {
         case 3, 4, 5, 6:
             unsavedResult += values[sameDicesAmount]!
@@ -180,8 +179,11 @@ struct GameController {
         }
     }
     
-    mutating func saveScore() {
+    func saveScore() {
         score += unsavedResult
+        if score >= K.winScore {
+            win = true
+        }
         unsavedResult = 0
         dicesAmount = 6
         currentRoll = []
@@ -190,7 +192,7 @@ struct GameController {
         canSave = false
     }
     
-    mutating func restart() {
+    func restart() {
         score = 0
         unsavedResult = 0
         dicesAmount = 6
@@ -200,5 +202,6 @@ struct GameController {
         canSave = false
         canRoll = true
         zonk = false
+        win = false
     }
 }

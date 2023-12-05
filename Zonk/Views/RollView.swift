@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct RollView: View {
-    @State var gameController = GameController()
+    @ObservedObject var gameController = GameController()
     
     var body: some View {
         ZStack {
             VStack {
                 HStack {
                     VStack(alignment: .leading) {
-                        Text("Score: \(gameController.score)/10000")
+                        Text("Score: \(gameController.score)/\(K.winScore)")
                             .font(.title)
                             .foregroundColor(.white)
                         Text("Current run: \(gameController.unsavedResult)")
@@ -43,7 +43,10 @@ struct RollView: View {
                     ForEach(gameController.currentRoll) { dice in
                         DiceView(dice: dice, size: CGSize(width: 100, height: 100))
                             .onTapGesture {
-                                gameController.handleDiceTap(dice)
+                                withAnimation {
+                                    gameController.handleDiceTap(dice)
+                                }
+                                
                             }
                     }
                 }
@@ -66,7 +69,10 @@ struct RollView: View {
                 
                 if gameController.canRoll {
                     Button {
-                        gameController.roll()
+                        withAnimation {
+                            gameController.roll()
+                        }
+                        
                     } label: {
                         Text("Roll")
                             .frame(width: 300, height: 50)
@@ -92,6 +98,10 @@ struct RollView: View {
                             gameController.itIsZonk()
                         }
                     }
+            }
+            
+            if gameController.win {
+                WinView(gameController: gameController)
             }
         }
     }
