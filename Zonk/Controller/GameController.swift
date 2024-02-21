@@ -4,6 +4,12 @@
 //
 //  Created by Artur Uvarov on 11/23/23.
 //
+// pseudocode:
+//
+//    while !zonk {
+//        roll
+//        handledicetap
+//        save/next move
 
 import Foundation
 
@@ -33,13 +39,7 @@ class GameController: ObservableObject {
         chosenDices = []
         chosenDicesShort = []
     }
- 
-    
-//    while !zonk {
-//        roll
-//        handledicetap
-//        save/next move
-    
+     
     func roll() {
         chosenDicesShort = []
         var result: [Dice] = []
@@ -130,8 +130,8 @@ class GameController: ObservableObject {
             1: 100,
             5: 50,
             7: dice.value * 100,
-    //        11 : 750,
-    //        12 : 1000
+            11 : 750,
+            12 : 1000
         ]
         
         let sameDices = chosenDicesShort.filter { $0.value == dice.value }
@@ -171,11 +171,8 @@ class GameController: ObservableObject {
     }
 
     private func updateResultForSameDices(sameDicesAmount: Int, values: [Int: Int]) {
-        switch sameDicesAmount {
-        case 3, 4, 5, 6:
+        if sameDicesAmount > 2 {
             unsavedResult += values[sameDicesAmount]!
-        default:
-            return
         }
     }
     

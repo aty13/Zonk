@@ -8,5 +8,5 @@
 import Foundation
 
 struct K {
-    static let winScore = 1000
+    static let winScore = 10000
 }

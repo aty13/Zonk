@@ -43,14 +43,14 @@ struct RollView: View {
                     ForEach(gameController.currentRoll) { dice in
                         DiceView(dice: dice, size: CGSize(width: 100, height: 100))
                             .onTapGesture {
-                                withAnimation {
-                                    gameController.handleDiceTap(dice)
-                                }
-                                
+                                gameController.handleDiceTap(dice)
                             }
+                            .rotationEffect(.degrees(Double.random(in: 0...360)))
+                            .padding()
                     }
                 }
                 .padding([.top], 150)
+                .frame(maxHeight: 300)
                 
                 Spacer()
                 
