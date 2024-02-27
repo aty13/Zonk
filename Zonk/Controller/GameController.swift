@@ -11,6 +11,16 @@
 //        handledicetap
 //        save/next move
 
+
+
+
+//
+
+// fast zonk - one run three steps
+
+//
+
+
 import Foundation
 
 class GameController: ObservableObject {
@@ -59,9 +69,9 @@ class GameController: ObservableObject {
         
         currentRoll = result
         
-        let tripletsTuple = areThereAnyTriplets();
+        let triplets = areThereAnyTriplets();
         
-        if let triplets = tripletsTuple.values {
+        if let triplets {
             currentTriplets = currentRoll.filter { triplets.contains($0.value) }
         }
         
@@ -71,10 +81,10 @@ class GameController: ObservableObject {
     }
     
     func checkForZonk() -> Bool {
-        let tripletsFound = areThereAnyTriplets().found
+        let tripletsFound = areThereAnyTriplets()
         let containsOneOrFive = currentRoll.contains { $0.value == 1 || $0.value == 5 }
         
-        return !tripletsFound && !containsOneOrFive
+        return tripletsFound != nil && !containsOneOrFive
     }
     
     func itIsZonk() {
@@ -108,7 +118,15 @@ class GameController: ObservableObject {
         }
     }
     
-    func areThereAnyTriplets() -> (found: Bool, values: [Int]?) {
+    func handleCancelDiceSelection(_ dice: Dice) {
+        if let index = chosenDicesShort.firstIndex(of: dice) {
+                chosenDices.remove(at: index)
+                
+                currentRoll.append(dice)
+        }
+    }
+    
+    func areThereAnyTriplets() -> [Int]? {
         var diceCount: [Int: Int] = [:]
 
         for dice in currentRoll {
@@ -120,9 +138,8 @@ class GameController: ObservableObject {
         }
         
         let triplets = diceCount.filter { $0.value >= 3 }.map { $0.key }
-        let hasTriplets = !triplets.isEmpty
         
-        return (found: hasTriplets, values: hasTriplets ? triplets : nil)
+        return triplets
     }
  
     func addPreScore(dice: Dice) {

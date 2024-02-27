@@ -10,6 +10,8 @@
 		9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C07341C2B12AF93006874F8 /* ZonkView.swift */; };
 		9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E68EE2B13F6A300E8FB61 /* WinView.swift */; };
 		9C0E68F22B14088E00E8FB61 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E68F12B14088E00E8FB61 /* K.swift */; };
+		9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */; };
+		9C323A732B8583B700E89846 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323A722B8583B700E89846 /* Player.swift */; };
 		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
 		9C8BF4A72B10210F000C256A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MainView.swift */; };
 		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		9C07341C2B12AF93006874F8 /* ZonkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkView.swift; sourceTree = "<group>"; };
 		9C0E68EE2B13F6A300E8FB61 /* WinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinView.swift; sourceTree = "<group>"; };
 		9C0E68F12B14088E00E8FB61 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
+		9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
+		9C323A722B8583B700E89846 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
 		9C8BF4A62B10210F000C256A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -91,6 +95,17 @@
 				9C0E68F12B14088E00E8FB61 /* K.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		9C1D8D902B8C2DCB00947A11 /* RollView */ = {
+			isa = PBXGroup;
+			children = (
+				9C8BF4D52B103C63000C256A /* RollView.swift */,
+				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
+				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
+				9C0E68EE2B13F6A300E8FB61 /* WinView.swift */,
+			);
+			path = RollView;
 			sourceTree = "<group>";
 		};
 		9C8BF4982B10210F000C256A = {
@@ -164,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8BF4D22B1023CD000C256A /* Dice.swift */,
+				9C323A722B8583B700E89846 /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,10 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				9C8BF4A62B10210F000C256A /* MainView.swift */,
-				9C8BF4D52B103C63000C256A /* RollView.swift */,
-				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
-				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
-				9C0E68EE2B13F6A300E8FB61 /* WinView.swift */,
+				9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */,
+				9C1D8D902B8C2DCB00947A11 /* RollView */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,6 +332,8 @@
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
+				9C323A732B8583B700E89846 /* Player.swift in Sources */,
+				9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */,
 				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

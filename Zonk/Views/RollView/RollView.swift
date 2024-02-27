@@ -35,6 +35,9 @@ struct RollView: View {
                         ForEach(gameController.chosenDices) { dice in
                             DiceView(dice: dice, size: CGSize(width: 30, height: 30))
                                 .border(.black)
+                                .onTapGesture {
+                                    gameController.handleCancelDiceSelection(dice)
+                                }
                         }
                     }
                 }
