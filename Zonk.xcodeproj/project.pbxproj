@@ -100,7 +100,6 @@
 		9C1D8D902B8C2DCB00947A11 /* RollView */ = {
 			isa = PBXGroup;
 			children = (
-				9C8BF4D52B103C63000C256A /* RollView.swift */,
 				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
 				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
 				9C0E68EE2B13F6A300E8FB61 /* WinView.swift */,
@@ -189,6 +188,7 @@
 			children = (
 				9C8BF4A62B10210F000C256A /* MainView.swift */,
 				9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */,
+				9C8BF4D52B103C63000C256A /* RollView.swift */,
 				9C1D8D902B8C2DCB00947A11 /* RollView */,
 			);
 			path = Views;

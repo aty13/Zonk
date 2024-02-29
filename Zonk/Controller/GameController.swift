@@ -118,14 +118,6 @@ class GameController: ObservableObject {
         }
     }
     
-    func handleCancelDiceSelection(_ dice: Dice) {
-        if let index = chosenDicesShort.firstIndex(of: dice) {
-                chosenDices.remove(at: index)
-                
-                currentRoll.append(dice)
-        }
-    }
-    
     func areThereAnyTriplets() -> [Int]? {
         var diceCount: [Int: Int] = [:]
 

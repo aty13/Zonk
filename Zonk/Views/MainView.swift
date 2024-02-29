@@ -13,14 +13,10 @@ struct MainView: View {
   var body: some View {
     NavigationView {
       VStack {
-        Spacer()
-
-        Text("Welcome to Zonk Game")
+        Text("Welcome to Zonk!")
           .font(.title)
           .fontWeight(.bold)
-          .foregroundColor(.blue)
-
-        Spacer()
+          .padding([.bottom, .top], 150)
 
         NavigationLink(destination: RollView()) {
           Text("Single Player")

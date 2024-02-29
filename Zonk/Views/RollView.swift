@@ -17,27 +17,27 @@ struct RollView: View {
                     VStack(alignment: .leading) {
                         Text("Score: \(gameController.score)/\(K.winScore)")
                             .font(.title)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                         Text("Current run: \(gameController.unsavedResult)")
                             .font(.title2)
-                            .foregroundColor(.white)
+                            .foregroundColor(.black)
                     }
+                    .padding()
+                    .background(.green.opacity(0.3))
+                    .cornerRadius(12)
                     Spacer()
                 }
                             
                 ZStack {
                     Rectangle()
-                        .fill(.green)
+                        .fill(.green.opacity(0.3))
                         .frame(width: 300, height: 50)
                         .cornerRadius(12)
                     
                     HStack {
                         ForEach(gameController.chosenDices) { dice in
                             DiceView(dice: dice, size: CGSize(width: 30, height: 30))
-                                .border(.black)
-                                .onTapGesture {
-                                    gameController.handleCancelDiceSelection(dice)
-                                }
+//                                .border(.black)
                         }
                     }
                 }
@@ -57,34 +57,39 @@ struct RollView: View {
                 
                 Spacer()
                 
-                if gameController.canSave {
-                    Button {
-                        gameController.saveScore()
-                    } label: {
-                        Text("Save")
-                            .frame(width: 300, height: 100)
-                            .background(Color.blue)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .font(.headline)
+                HStack {
+                    if gameController.canSave {
+                        Button {
+                            gameController.saveScore()
+                        } label: {
+                            Text("Save")
+                                .frame(width: 150, height: 70)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .font(.headline)
+                                .padding(.trailing, 50)
+                        }
+                    }
+                    
+                    if gameController.canRoll {
+                        Button {
+                            withAnimation {
+                                gameController.roll()
+                            }
+                            
+                        } label: {
+                            Image(systemName: "dice.fill")
+                                .font(.system(size: 60))
+                                .frame(width: 100, height: 100)
+                                .background(Color.green)
+                                .foregroundColor(.white)
+                                .cornerRadius(50)
+                        }
                     }
                 }
                 
-                if gameController.canRoll {
-                    Button {
-                        withAnimation {
-                            gameController.roll()
-                        }
-                        
-                    } label: {
-                        Text("Roll")
-                            .frame(width: 300, height: 50)
-                            .background(Color.green)
-                            .foregroundColor(.white)
-                            .cornerRadius(10)
-                            .font(.headline)
-                    }
-                }
+                
             }
             .padding()
             .background(
