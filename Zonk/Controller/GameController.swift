@@ -10,21 +10,17 @@
 //        roll
 //        handledicetap
 //        save/next move
-
-
-
-
 //
-
 // fast zonk - one run three steps
-
 //
 
 
 import Foundation
 
 class GameController: ObservableObject {
-    @Published var score: Int
+    @Published var players: [Player]
+    @Published var winScore: Int
+    @Published var currentPlayerIndex: Int
     @Published var unsavedResult: Int
     @Published var dicesAmount: Int
     @Published var canRoll: Bool
@@ -37,7 +33,9 @@ class GameController: ObservableObject {
     @Published var chosenDicesShort: [Dice]
     
     init() {
-        score = 0
+        players = [Player(name: "Default")]
+        winScore = 10000
+        currentPlayerIndex = 0
         unsavedResult = 0
         dicesAmount = 6
         canRoll = true
@@ -77,6 +75,7 @@ class GameController: ObservableObject {
         
         if checkForZonk() {
             zonk = true
+            nextPlayer()
         }
     }
     
@@ -186,20 +185,13 @@ class GameController: ObservableObject {
     }
     
     func saveScore() {
-        score += unsavedResult
-        if score >= K.winScore {
+        players[currentPlayerIndex].score += unsavedResult
+
+        if players[currentPlayerIndex].score >= winScore {
             win = true
+            return
         }
-        unsavedResult = 0
-        dicesAmount = 6
-        currentRoll = []
-        currentTriplets = []
-        chosenDices = []
-        canSave = false
-    }
-    
-    func restart() {
-        score = 0
+
         unsavedResult = 0
         dicesAmount = 6
         currentRoll = []
@@ -207,7 +199,23 @@ class GameController: ObservableObject {
         chosenDices = []
         canSave = false
         canRoll = true
-        zonk = false
-        win = false
+        
+        nextPlayer()
+    }
+    
+    func nextPlayer() {
+        currentPlayerIndex += 1
+        
+        if currentPlayerIndex >= players.count {
+            currentPlayerIndex = 0
+        }
+    }
+    
+    func changeWinscore(_ input: Int) {
+        let range = 1000...10000
+
+        if range.contains(input) {
+            winScore = input
+        }
     }
 }

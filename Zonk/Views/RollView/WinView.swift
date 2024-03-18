@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WinView: View {
-    @ObservedObject var gameController: GameController
+    @EnvironmentObject var gameController: GameController
     
     var body: some View {
         ZStack {
@@ -23,7 +23,7 @@ struct WinView: View {
                 .fontWeight(.bold)
                 
                 Button {
-                    gameController.restart()
+//                    gameController.restart()
                 } label: {
                     Text("Try again")
                 }
@@ -38,4 +38,5 @@ struct WinView: View {
 
 //#Preview {
 //    WinView()
+//        .environment(<#T##object: Observable?##Observable?#>)
 //}

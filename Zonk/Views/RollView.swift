@@ -8,39 +8,58 @@
 import SwiftUI
 
 struct RollView: View {
-    @ObservedObject var gameController = GameController()
+    @EnvironmentObject var gameController: GameController
     
     var body: some View {
         ZStack {
-            VStack {
+            VStack(spacing: 20) {
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text("Score: \(gameController.score)/\(K.winScore)")
-                            .font(.title)
-                            .foregroundColor(.black)
+                    VStack(alignment: .leading, spacing: 10) {
+                        
+                        HStack(spacing: 20) {
+                            ForEach(gameController.players.indices, id: \.self) { index in
+                                let player = gameController.players[index]
+                                VStack {
+                                    Text(player.name)
+                                        .font(.headline)
+                                        .foregroundColor(.black)
+                                    Text("\(player.score)/\(gameController.winScore)")
+                                        .font(.subheadline)
+                                        .foregroundColor(.black)
+                                }
+                                .padding(8)
+                                .background(index == gameController.currentPlayerIndex ? Color.green.opacity(0.3) : Color.clear) // Highlight current player
+                                .cornerRadius(8)
+                            }
+                        }
+                        .padding([.bottom], 15)
+                        
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("Current Player: \(gameController.players[gameController.currentPlayerIndex].name)")
+                            
+                        }
+                        .font(.subheadline)
+                        .fontWeight(.bold)
+                        .foregroundColor(.black)
+                        
                         Text("Current run: \(gameController.unsavedResult)")
                             .font(.title2)
                             .foregroundColor(.black)
-                    }
-                    .padding()
-                    .background(.green.opacity(0.3))
-                    .cornerRadius(12)
-                    Spacer()
-                }
-                            
-                ZStack {
-                    Rectangle()
-                        .fill(.green.opacity(0.3))
-                        .frame(width: 300, height: 50)
-                        .cornerRadius(12)
-                    
-                    HStack {
-                        ForEach(gameController.chosenDices) { dice in
-                            DiceView(dice: dice, size: CGSize(width: 30, height: 30))
-//                                .border(.black)
+                        
+                        HStack(spacing: 10) {
+                            ForEach(gameController.chosenDices) { dice in
+                                DiceView(dice: dice, size: CGSize(width: 30, height: 30))
+                            }
                         }
                     }
+                    .padding(15)
+                    .background(Color.green.opacity(0.3))
+                    .cornerRadius(12)
+                    
+                    Spacer()
                 }
+            
+        
                 
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     ForEach(gameController.currentRoll) { dice in
@@ -60,7 +79,7 @@ struct RollView: View {
                 HStack {
                     if gameController.canSave {
                         Button {
-                            gameController.saveScore()
+                                gameController.saveScore()
                         } label: {
                             Text("Save")
                                 .frame(width: 150, height: 70)
@@ -74,9 +93,7 @@ struct RollView: View {
                     
                     if gameController.canRoll {
                         Button {
-                            withAnimation {
                                 gameController.roll()
-                            }
                             
                         } label: {
                             Image(systemName: "dice.fill")
@@ -97,24 +114,27 @@ struct RollView: View {
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()
-                )
+            )
             
             if gameController.zonk {
                 ZonkView()
                     .onAppear {
+                        
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                            gameController.itIsZonk()
+                                gameController.itIsZonk()
                         }
                     }
             }
             
             if gameController.win {
-                WinView(gameController: gameController)
+                WinView()
             }
         }
+        .navigationBarHidden(true)
     }
 }
 
 #Preview {
     RollView()
+        .environmentObject(GameController())
 }
