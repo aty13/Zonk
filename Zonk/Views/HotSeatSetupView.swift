@@ -32,28 +32,27 @@ struct HotSeatSetupView: View {
                     }
                     .navigationTitle("Players")
                     
-                    Section {
-                        TextField(text: $newPlayerName) {
-                            Text("Player name")
-                            
-                        }
-                        .padding()
-                        .background(.green.opacity(0.07))
-                        .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                        
-                        Button("Add Player") {
-                            withAnimation {
-                                guard !newPlayerName.isEmpty else { return }
-                                gameController.players.append(Player(name: newPlayerName))
-                                newPlayerName = ""
-                                
+                    if gameController.players.count <= 5 {
+                        Section {
+                            TextField(text: $newPlayerName) {
+                                Text("Player name")
                             }
+                            .padding()
+                            .background(.green.opacity(0.07))
+                            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                            
+                            Button("Add Player") {
+                                withAnimation {
+                                    guard !newPlayerName.isEmpty else { return }
+                                    gameController.players.append(Player(name: newPlayerName))
+                                    newPlayerName = ""
+                                }
+                            }
+                            .padding()
+                            .background(.blue.opacity(0.2))
+                        } header: {
+                            Text("Type player name to add")
                         }
-                        .padding()
-                        .background(.blue.opacity(0.2))
-                        .disabled(gameController.players.count >= 6)
-                    } header: {
-                        Text("Type player name to add")
                     }
                     
                     Section {

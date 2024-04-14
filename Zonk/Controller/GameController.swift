@@ -218,4 +218,23 @@ class GameController: ObservableObject {
             winScore = input
         }
     }
+    
+    func restart() {
+        for var player in players {
+            player.score = 0
+        }
+        
+        winScore = 10000
+        currentPlayerIndex = 0
+        unsavedResult = 0
+        dicesAmount = 6
+        canRoll = true
+        canSave = false
+        zonk = false
+        win = false
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        chosenDicesShort = []
+    }
 }

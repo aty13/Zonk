@@ -8,11 +8,88 @@
 import SwiftUI
 
 struct ScoreView: View {
+    @EnvironmentObject var gameController: GameController
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading, spacing: 10) {
+            Group {
+                if gameController.players.count > 3 {
+                    
+                    VStack(alignment: .leading, spacing: 10) {
+                        HStack(spacing: 20) {
+                            ForEach(gameController.players.indices.prefix(3), id: \.self) { index in
+                                playerView(for: index)
+                            }
+                        }
+                        HStack(spacing: 20) {
+                            ForEach(gameController.players.indices.dropFirst(3), id: \.self) { index in
+                                playerView(for: index)
+                            }
+                        }
+                    }
+                } else {
+                    
+                    HStack(spacing: 20) {
+                        ForEach(gameController.players.indices, id: \.self) { index in
+                            playerView(for: index)
+                        }
+                    }
+                }
+            }
+            .padding([.bottom], 15)
+                        
+            VStack(alignment: .leading, spacing: 5) {
+                Text("Current Player: \(gameController.players[gameController.currentPlayerIndex].name)")
+                    .foregroundColor(.white)
+                
+            }
+            .font(.subheadline)
+            .fontWeight(.bold)
+            .foregroundColor(.black)
+            
+            Text("Current run: \(gameController.unsavedResult)")
+                .font(.title2)
+                .foregroundColor(.white)
+            
+            HStack(spacing: 10) {
+                ForEach(gameController.chosenDices) { dice in
+                    DiceView(dice: dice, size: CGSize(width: 30, height: 30))
+                }
+            }
+        }
+        .padding(15)
+        .background(Color.green.opacity(0.3))
+        .cornerRadius(12)
+    }
+    
+    private func playerView(for index: Int) -> some View {
+        let player = gameController.players[index]
+        return VStack {
+            Text(player.name)
+                .font(.headline)
+                .foregroundColor(.white)
+            Text("\(player.score)/\(gameController.winScore)")
+                .font(.subheadline)
+                .fontWeight(.bold)
+                .foregroundColor(.white)
+        }
+        .padding(8)
+        .background(index == gameController.currentPlayerIndex ? Color.green.opacity(0.3) : Color.clear)
+        .cornerRadius(8)
     }
 }
 
 #Preview {
-    ScoreView()
+    let gameController = GameController()
+    gameController.players.append(Player(name: "Aty"))
+    gameController.players.append(Player(name: "Igor"))
+    gameController.players.append(Player(name: "Vika"))
+    gameController.players.append(Player(name: "Petro"))
+    gameController.players.append(Player(name: "Petro"))
+    
+    return ScoreView()
+        .environmentObject(gameController)
+    
+    
+    
 }

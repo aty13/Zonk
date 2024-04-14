@@ -12,12 +12,20 @@ struct MainView: View {
     @State private var showHowToPlay = false
     
     var body: some View {
-        NavigationView {
+        NavigationStack {
             VStack {
-                Text("Welcome to Zonk!")
-                    .font(.title)
-                    .fontWeight(.bold)
-                    .padding([.bottom, .top], 150)
+                
+                Text("Zonk!")
+                    .font(.system(size: 70, design: .rounded))
+                    .fontWeight(.heavy)
+                    .padding([.bottom, .top], 75)
+                    .foregroundStyle(.white)
+                    .shadow(
+                        color: Color.primary,
+                            radius: 3,
+                            x: 2,
+                            y: 2
+                    )
                 
                 NavigationLink(destination: RollView()) {
                     Text("Single Player")
@@ -42,34 +50,40 @@ struct MainView: View {
             }
             .frame(maxWidth: .infinity)
             .navigationBarHidden(true)
-            .background(LinearGradient(gradient: Gradient(colors: [.blue, .green]), startPoint: .topLeading, endPoint: .bottomTrailing))
+            .background(
+                Image("background-main")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+            )
+            
             .sheet(isPresented: $showHowToPlay) {
                 HowToPlayView(onClose: {
                     showHowToPlay.toggle()
                 })
-                .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
+        
     }
 }
 
 struct BorderButtonModifier: ViewModifier {
     let borderColor: Color
-
+    
     func body(content: Content) -> some View {
-      content
-        .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-        .padding()
-        .background(Color.white)
-        .foregroundColor(.black)
-        .overlay(
-          RoundedRectangle(cornerRadius: 10)
-            .stroke(borderColor, lineWidth: 2)
-        )
-        .cornerRadius(10)
-        .shadow(color: .gray.opacity(0.2), radius: 5)
+        content
+            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
+            .padding()
+            .background(Color.white)
+            .foregroundColor(.black)
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(borderColor, lineWidth: 2)
+            )
+            .cornerRadius(10)
+            .shadow(color: .gray.opacity(0.2), radius: 5)
     }
-  }
+}
 
 #Preview {
     MainView()

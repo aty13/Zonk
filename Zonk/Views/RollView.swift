@@ -9,57 +9,52 @@ import SwiftUI
 
 struct RollView: View {
     @EnvironmentObject var gameController: GameController
+    @Environment(\.dismiss) private var dismiss
+    @State private var isRestartPresentingConfirm: Bool = false
+    @State private var isQuitPresentingConfirm: Bool = false
+    
     
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
                 HStack {
-                    VStack(alignment: .leading, spacing: 10) {
+                    HStack(alignment: .top) {
+
+                        ScoreView()
                         
-                        HStack(spacing: 20) {
-                            ForEach(gameController.players.indices, id: \.self) { index in
-                                let player = gameController.players[index]
-                                VStack {
-                                    Text(player.name)
-                                        .font(.headline)
-                                        .foregroundColor(.black)
-                                    Text("\(player.score)/\(gameController.winScore)")
-                                        .font(.subheadline)
-                                        .foregroundColor(.black)
+                        Spacer()
+                        
+                        HStack {
+                            TopButton(
+                                isPresentingConfirm: $isRestartPresentingConfirm,
+                                systemImageName: "gobackward",
+                                confirmationTitleText: "You sure you want to restart?",
+                                confirmationButtonText: "Restart",
+                                buttonAction: {
+                                    gameController.restart()
                                 }
-                                .padding(8)
-                                .background(index == gameController.currentPlayerIndex ? Color.green.opacity(0.3) : Color.clear) // Highlight current player
-                                .cornerRadius(8)
-                            }
-                        }
-                        .padding([.bottom], 15)
-                        
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text("Current Player: \(gameController.players[gameController.currentPlayerIndex].name)")
+                            )
+                            
+                            TopButton(
+                                isPresentingConfirm: $isQuitPresentingConfirm,
+                                systemImageName: "backward.frame",
+                                confirmationTitleText: "You sure you want to quit?",
+                                confirmationButtonText: "Quit",
+                                buttonAction: {
+                                    gameController.restart()
+                                    dismiss()
+                                }
+                                
+                            )
                             
                         }
-                        .font(.subheadline)
-                        .fontWeight(.bold)
-                        .foregroundColor(.black)
-                        
-                        Text("Current run: \(gameController.unsavedResult)")
-                            .font(.title2)
-                            .foregroundColor(.black)
-                        
-                        HStack(spacing: 10) {
-                            ForEach(gameController.chosenDices) { dice in
-                                DiceView(dice: dice, size: CGSize(width: 30, height: 30))
-                            }
-                        }
+                        .padding(15)
+                        .background(Color.green.opacity(0.3))
+                        .cornerRadius(12)
                     }
-                    .padding(15)
-                    .background(Color.green.opacity(0.3))
-                    .cornerRadius(12)
                     
                     Spacer()
                 }
-            
-        
                 
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     ForEach(gameController.currentRoll) { dice in

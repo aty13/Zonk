@@ -23,6 +23,8 @@
 		9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D22B1023CD000C256A /* Dice.swift */; };
 		9C8BF4D62B103C63000C256A /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D52B103C63000C256A /* RollView.swift */; };
 		9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D72B103E6F000C256A /* DiceView.swift */; };
+		9C9414F42BCC61350090B858 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F32BCC61350090B858 /* TopButton.swift */; };
+		9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F52BCC655B0090B858 /* ScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		9C8BF4D22B1023CD000C256A /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		9C8BF4D52B103C63000C256A /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
 		9C8BF4D72B103E6F000C256A /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
+		9C9414F32BCC61350090B858 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
+		9C9414F52BCC655B0090B858 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +99,8 @@
 				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
 				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
 				9C0E68EE2B13F6A300E8FB61 /* WinView.swift */,
+				9C9414F32BCC61350090B858 /* TopButton.swift */,
+				9C9414F52BCC655B0090B858 /* ScoreView.swift */,
 			);
 			path = RollView;
 			sourceTree = "<group>";
@@ -321,11 +327,13 @@
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
 				9C8BF4A72B10210F000C256A /* MainView.swift in Sources */,
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
+				9C9414F42BCC61350090B858 /* TopButton.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
 				9C323A732B8583B700E89846 /* Player.swift in Sources */,
 				9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */,
 				9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */,
+				9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */,
 				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

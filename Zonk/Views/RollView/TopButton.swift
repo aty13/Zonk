@@ -8,11 +8,38 @@
 import SwiftUI
 
 struct TopButton: View {
+    @Binding var isPresentingConfirm: Bool
+    let systemImageName: String
+    let confirmationTitleText: String
+    let confirmationButtonText: String
+    var buttonAction: () -> Void
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+            isPresentingConfirm.toggle()
+        }) {
+            Image(systemName: systemImageName)
+                .foregroundStyle(.white)
+                .fontWeight(.bold)
+                .font(.system(size: 25))
+        }
+        .confirmationDialog("Sure?", isPresented: $isPresentingConfirm) {
+            VStack {
+                Text(confirmationTitleText)
+                Button(confirmationButtonText, role: .destructive) {
+                       buttonAction()
+                }
+            }
+            
+            
+        }
     }
 }
 
-#Preview {
-    TopButton()
-}
+//#Preview {
+//    RollView()
+//}
+
+//"gobackward"
+
+//"You want to restart?"
