@@ -33,7 +33,9 @@ class GameController: ObservableObject {
     @Published var chosenDicesShort: [Dice]
     
     init() {
-        players = [Player(name: "Default")]
+        let username = UserDefaultsService.shared.getUsername()
+        
+        players = [Player(name: username ?? "Default", ai: false)]
         winScore = 10000
         currentPlayerIndex = 0
         unsavedResult = 0
@@ -75,6 +77,11 @@ class GameController: ObservableObject {
         
         if checkForZonk() {
             zonk = true
+            players[currentPlayerIndex].zonks += 1
+            if players[currentPlayerIndex].zonks == 3 {
+                players[currentPlayerIndex].score -= 1000
+                players[currentPlayerIndex].zonks = 0
+            }
             nextPlayer()
         }
     }
@@ -185,11 +192,14 @@ class GameController: ObservableObject {
     }
     
     func saveScore() {
+        if currentPlayerIndex == 0 {
+            UserDefaultsService.shared.saveUserTopScore(unsavedResult)
+        }
+        
         players[currentPlayerIndex].score += unsavedResult
 
         if players[currentPlayerIndex].score >= winScore {
             win = true
-            return
         }
 
         unsavedResult = 0
@@ -220,8 +230,8 @@ class GameController: ObservableObject {
     }
     
     func restart() {
-        for var player in players {
-            player.score = 0
+        for index in players.indices {
+            players[index].score = 0
         }
         
         winScore = 10000

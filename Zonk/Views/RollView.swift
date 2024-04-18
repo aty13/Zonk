@@ -12,6 +12,7 @@ struct RollView: View {
     @Environment(\.dismiss) private var dismiss
     @State private var isRestartPresentingConfirm: Bool = false
     @State private var isQuitPresentingConfirm: Bool = false
+    @State var isWinViewShowing: Bool = false
     
     
     var body: some View {
@@ -122,7 +123,7 @@ struct RollView: View {
             }
             
             if gameController.win {
-                WinView()
+                WinView(quit: { dismiss() })
             }
         }
         .navigationBarHidden(true)

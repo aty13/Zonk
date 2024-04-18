@@ -41,6 +41,8 @@ struct ScoreView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text("Current Player: \(gameController.players[gameController.currentPlayerIndex].name)")
                     .foregroundColor(.white)
+                Text("Zonks: \(gameController.players[gameController.currentPlayerIndex].zonks)")
+                    .foregroundColor(gameController.players[gameController.currentPlayerIndex].zonks > 1 ? .red : .white)
                 
             }
             .font(.subheadline)
@@ -81,11 +83,11 @@ struct ScoreView: View {
 
 #Preview {
     let gameController = GameController()
-    gameController.players.append(Player(name: "Aty"))
-    gameController.players.append(Player(name: "Igor"))
-    gameController.players.append(Player(name: "Vika"))
-    gameController.players.append(Player(name: "Petro"))
-    gameController.players.append(Player(name: "Petro"))
+    gameController.players.append(Player(name: "Aty", ai: false))
+    gameController.players.append(Player(name: "Igor", ai: false))
+    gameController.players.append(Player(name: "Vika", ai: false))
+    gameController.players.append(Player(name: "Petro", ai: false))
+    gameController.players.append(Player(name: "Petro", ai: false))
     
     return ScoreView()
         .environmentObject(gameController)

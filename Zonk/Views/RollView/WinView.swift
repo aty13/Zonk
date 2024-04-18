@@ -9,34 +9,57 @@ import SwiftUI
 
 struct WinView: View {
     @EnvironmentObject var gameController: GameController
+    let quit: () -> Void
     
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(Color.gray.opacity(0.3))
+                .fill(Color.gray.opacity(0.5))
                 .ignoresSafeArea()
             
             VStack {
-                Spacer()
                 Text("You won!")
                     .font(.largeTitle)
-                .fontWeight(.bold)
+                    .fontWeight(.bold)
+                    .foregroundColor(.white)
+                    .padding(.bottom, 50)
                 
-                Button {
-//                    gameController.restart()
-                } label: {
+                Button(action: {
+                    gameController.restart()
+                }) {
                     Text("Try again")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.blue.opacity(0.7))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 50)
                 }
-                .padding([.top], 300)
                 
+                Button(action: {
+                    gameController.restart()
+                    quit()
+                }) {
+                    Text("Quit")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding()
+                        .frame(maxWidth: .infinity)
+                        .background(Color.red.opacity(0.7))
+                        .cornerRadius(10)
+                        .padding(.horizontal, 50)
+                        .padding(.bottom, 50)
+                }
             }
-            
-            
+
         }
     }
 }
 
-//#Preview {
-//    WinView()
-//        .environment(<#T##object: Observable?##Observable?#>)
-//}
+#Preview {
+    WinView(quit: {})
+        .environmentObject(GameController())
+}

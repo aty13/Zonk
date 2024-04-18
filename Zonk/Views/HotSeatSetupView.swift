@@ -21,7 +21,7 @@ struct HotSeatSetupView: View {
                     Section {
                         List {
                             ForEach(gameController.players) { player in
-                                Text(player.name)
+                                PlayerListItem(player: player)
                             }
                             .onDelete { indexSet in
                                 gameController.players.remove(atOffsets: indexSet)
@@ -41,15 +41,37 @@ struct HotSeatSetupView: View {
                             .background(.green.opacity(0.07))
                             .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                             
-                            Button("Add Player") {
-                                withAnimation {
-                                    guard !newPlayerName.isEmpty else { return }
-                                    gameController.players.append(Player(name: newPlayerName))
-                                    newPlayerName = ""
+                            HStack {
+                                Button("Add Player") {
+                                    withAnimation {
+                                        guard !newPlayerName.isEmpty else { return }
+                                        gameController.players.append(
+                                            Player(
+                                                name: newPlayerName,
+                                                ai: false
+                                            )
+                                        )
+                                        newPlayerName = ""
+                                    }
                                 }
+                                .padding()
+                                .background(.blue.opacity(0.2))
+                                
+                                Button("Add AI Player") {
+                                    withAnimation {
+                                        gameController.players.append(
+                                            Player(
+                                                name: getRandomAIName(),
+                                                ai: true
+                                            )
+                                        )
+                                        newPlayerName = ""
+                                    }
+                                }
+                                .padding()
+                                .background(.blue.opacity(0.2))
                             }
-                            .padding()
-                            .background(.blue.opacity(0.2))
+                            
                         } header: {
                             Text("Type player name to add")
                         }
@@ -97,33 +119,8 @@ struct HotSeatSetupView: View {
     }
 }
 
-struct RedButtonStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.headline)
-            .fontWeight(.semibold)
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.red)
-            .cornerRadius(10)
-    }
-}
-
-struct BlueButtonStyle: ViewModifier {
-    func body(content: Content) -> some View {
-        content
-            .font(.headline)
-            .fontWeight(.semibold)
-            .foregroundColor(.white)
-            .padding()
-            .background(Color.green)
-            .cornerRadius(10)
-    }
-}
-
-
-
 #Preview {
     HotSeatSetupView()
         .environmentObject(GameController())
 }
+

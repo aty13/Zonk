@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct MainView: View {
-    
+    @EnvironmentObject var gameController: GameController
     @State private var showHowToPlay = false
+    @State private var showPlayerInfo = false
+    @State private var showNameAlert = false
+    @State private var newPlayerName = ""
     
     var body: some View {
         NavigationStack {
@@ -28,7 +31,7 @@ struct MainView: View {
                     )
                 
                 NavigationLink(destination: RollView()) {
-                    Text("Single Player")
+                    Text("Single Play")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
                 
@@ -36,6 +39,15 @@ struct MainView: View {
                     Text("Hot seat")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
+                Button(action: {
+                    withAnimation(.default ) {
+                        showPlayerInfo.toggle()
+                    }
+                }) {
+                    Text("Player info")
+                        .modifier(BorderButtonModifier(borderColor: .black))
+                }
+                .padding([.top], 20)
                 
                 Button(action: {
                     withAnimation(.default ) {
@@ -58,30 +70,49 @@ struct MainView: View {
             )
             
             .sheet(isPresented: $showHowToPlay) {
-                HowToPlayView(onClose: {
-                    showHowToPlay.toggle()
-                })
+                HowToPlayView(onClose: { showHowToPlay.toggle() })
+                    .presentationBackground(.ultraThinMaterial)
+            }
+            .sheet(isPresented: $showPlayerInfo) {
+                PlayerInfoView(onClose: { showPlayerInfo.toggle() })
+                    .presentationBackground(.ultraThinMaterial)
+                    
+            }
+            
+        }
+        .onAppear {
+            if UserDefaultsService.shared.getUsername() == nil {
+                showNameAlert.toggle()
             }
         }
-        
-    }
-}
+        .alert("Please provide your name", isPresented: $showNameAlert) {
+            TextField("Player name", text: $newPlayerName)
+                .padding()
+                .background(Color.green.opacity(0.07))
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
 
-struct BorderButtonModifier: ViewModifier {
-    let borderColor: Color
+            Button(action: {
+                if newPlayerName.isEmpty {
+                    UserDefaultsService.shared.saveUsername("Default")
+                } else {
+                    UserDefaultsService.shared.saveUsername(newPlayerName)
+                }
+            }) {
+                Text("Save")
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding(.top, 10)
+        }
+
+    }
     
-    func body(content: Content) -> some View {
-        content
-            .frame(width: /*@START_MENU_TOKEN@*/100/*@END_MENU_TOKEN@*/)
-            .padding()
-            .background(Color.white)
-            .foregroundColor(.black)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(borderColor, lineWidth: 2)
-            )
-            .cornerRadius(10)
-            .shadow(color: .gray.opacity(0.2), radius: 5)
+    func saveName() {
+        if !newPlayerName.isEmpty {
+            
+        }
     }
 }
 

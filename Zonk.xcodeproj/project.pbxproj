@@ -12,6 +12,11 @@
 		9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */; };
 		9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */; };
 		9C323A732B8583B700E89846 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323A722B8583B700E89846 /* Player.swift */; };
+		9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */; };
+		9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA22BD0900C000B69B8 /* TopButton.swift */; };
+		9C323EA52BD0970A000B69B8 /* AINameGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA42BD0970A000B69B8 /* AINameGenerator.swift */; };
+		9C323EA82BD0991E000B69B8 /* PlayerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */; };
+		9C323EAA2BD09B2A000B69B8 /* ComputerPlayerLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA92BD09B2A000B69B8 /* ComputerPlayerLogic.swift */; };
 		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
 		9C8BF4A72B10210F000C256A /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MainView.swift */; };
 		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
@@ -23,8 +28,10 @@
 		9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D22B1023CD000C256A /* Dice.swift */; };
 		9C8BF4D62B103C63000C256A /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D52B103C63000C256A /* RollView.swift */; };
 		9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D72B103E6F000C256A /* DiceView.swift */; };
-		9C9414F42BCC61350090B858 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F32BCC61350090B858 /* TopButton.swift */; };
 		9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F52BCC655B0090B858 /* ScoreView.swift */; };
+		9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */; };
+		9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4572BCE21FC0008644D /* UserData.swift */; };
+		9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E45A2BCF54870008644D /* PlayerInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +57,11 @@
 		9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSeatSetupView.swift; sourceTree = "<group>"; };
 		9C323A722B8583B700E89846 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
+		9C323EA22BD0900C000B69B8 /* TopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
+		9C323EA42BD0970A000B69B8 /* AINameGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AINameGenerator.swift; sourceTree = "<group>"; };
+		9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListItem.swift; sourceTree = "<group>"; };
+		9C323EA92BD09B2A000B69B8 /* ComputerPlayerLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComputerPlayerLogic.swift; sourceTree = "<group>"; };
 		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
 		9C8BF4A62B10210F000C256A /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -64,8 +76,10 @@
 		9C8BF4D22B1023CD000C256A /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		9C8BF4D52B103C63000C256A /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
 		9C8BF4D72B103E6F000C256A /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
-		9C9414F32BCC61350090B858 /* TopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		9C9414F52BCC655B0090B858 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
+		9CA6E4572BCE21FC0008644D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		9CA6E45A2BCF54870008644D /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,13 +110,29 @@
 		9C1D8D902B8C2DCB00947A11 /* RollView */ = {
 			isa = PBXGroup;
 			children = (
+				9C323EA22BD0900C000B69B8 /* TopButton.swift */,
 				9C8BF4D72B103E6F000C256A /* DiceView.swift */,
 				9C07341C2B12AF93006874F8 /* ZonkView.swift */,
 				9C0E68EE2B13F6A300E8FB61 /* WinView.swift */,
-				9C9414F32BCC61350090B858 /* TopButton.swift */,
 				9C9414F52BCC655B0090B858 /* ScoreView.swift */,
 			);
 			path = RollView;
+			sourceTree = "<group>";
+		};
+		9C323E9F2BD08EE9000B69B8 /* ViewHelpers */ = {
+			isa = PBXGroup;
+			children = (
+				9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */,
+			);
+			path = ViewHelpers;
+			sourceTree = "<group>";
+		};
+		9C323EA62BD09905000B69B8 /* HotSeatSetupView */ = {
+			isa = PBXGroup;
+			children = (
+				9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */,
+			);
+			path = HotSeatSetupView;
 			sourceTree = "<group>";
 		};
 		9C8BF4982B10210F000C256A = {
@@ -129,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				9C8BF4A42B10210F000C256A /* ZonkApp.swift */,
+				9CA6E4532BCE213D0008644D /* Services */,
 				9C8BF4D12B1023C2000C256A /* Models */,
 				9C8BF4CE2B102342000C256A /* Controller */,
 				9C8BF4D42B103C49000C256A /* Views */,
@@ -176,6 +207,7 @@
 			children = (
 				9C8BF4D22B1023CD000C256A /* Dice.swift */,
 				9C323A722B8583B700E89846 /* Player.swift */,
+				9CA6E4572BCE21FC0008644D /* UserData.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,12 +216,33 @@
 			isa = PBXGroup;
 			children = (
 				9C8BF4A62B10210F000C256A /* MainView.swift */,
-				9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */,
 				9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */,
+				9C323EA62BD09905000B69B8 /* HotSeatSetupView */,
 				9C8BF4D52B103C63000C256A /* RollView.swift */,
+				9CA6E4592BCF54730008644D /* MainView */,
 				9C1D8D902B8C2DCB00947A11 /* RollView */,
+				9C323E9F2BD08EE9000B69B8 /* ViewHelpers */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9CA6E4532BCE213D0008644D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */,
+				9C323EA42BD0970A000B69B8 /* AINameGenerator.swift */,
+				9C323EA92BD09B2A000B69B8 /* ComputerPlayerLogic.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		9CA6E4592BCF54730008644D /* MainView */ = {
+			isa = PBXGroup;
+			children = (
+				9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */,
+				9CA6E45A2BCF54870008644D /* PlayerInfoView.swift */,
+			);
+			path = MainView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -325,15 +378,22 @@
 				9C8BF4D02B102353000C256A /* GameController.swift in Sources */,
 				9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
+				9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */,
+				9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */,
 				9C8BF4A72B10210F000C256A /* MainView.swift in Sources */,
+				9C323EAA2BD09B2A000B69B8 /* ComputerPlayerLogic.swift in Sources */,
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
-				9C9414F42BCC61350090B858 /* TopButton.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
+				9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */,
+				9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */,
+				9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */,
 				9C323A732B8583B700E89846 /* Player.swift in Sources */,
 				9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */,
+				9C323EA82BD0991E000B69B8 /* PlayerListItem.swift in Sources */,
 				9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */,
 				9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */,
+				9C323EA52BD0970A000B69B8 /* AINameGenerator.swift in Sources */,
 				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -495,18 +555,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
 				DEVELOPMENT_TEAM = 9T37BUC2QK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Zonk Dice Game";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,18 +588,21 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
 				DEVELOPMENT_TEAM = 9T37BUC2QK;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Zonk Dice Game";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
