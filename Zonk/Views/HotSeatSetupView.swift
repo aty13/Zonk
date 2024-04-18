@@ -57,19 +57,6 @@ struct HotSeatSetupView: View {
                                 .padding()
                                 .background(.blue.opacity(0.2))
                                 
-                                Button("Add AI Player") {
-                                    withAnimation {
-                                        gameController.players.append(
-                                            Player(
-                                                name: getRandomAIName(),
-                                                ai: true
-                                            )
-                                        )
-                                        newPlayerName = ""
-                                    }
-                                }
-                                .padding()
-                                .background(.blue.opacity(0.2))
                             }
                             
                         } header: {
