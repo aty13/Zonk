@@ -24,5 +24,5 @@ struct PlayerListItem: View {
 
 
 #Preview {
-    PlayerListItem(player: Player(name: getRandomAIName(), ai: true))
+    PlayerListItem(player: Player(name: "getRandomAIName()", ai: true))
 }
