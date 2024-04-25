@@ -39,4 +39,8 @@ class UserDefaultsService {
         let bestRunScore = userDefaults.integer(forKey: diceThrowRecordKey)
         return bestRunScore
     }
+    
+    func resetUserTopScore() {
+        userDefaults.set(0, forKey: diceThrowRecordKey)
+    }
 }
