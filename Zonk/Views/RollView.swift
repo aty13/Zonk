@@ -13,14 +13,14 @@ struct RollView: View {
     @State private var isRestartPresentingConfirm: Bool = false
     @State private var isQuitPresentingConfirm: Bool = false
     @State var isWinViewShowing: Bool = false
-    
+    @State private var isAnimationRunning = false
     
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
                 HStack {
                     HStack(alignment: .top) {
-
+                        
                         ScoreView()
                         
                         Spacer()
@@ -59,12 +59,13 @@ struct RollView: View {
                 
                 LazyVGrid(columns: [GridItem(), GridItem()]) {
                     ForEach(gameController.currentRoll) { dice in
-                        DiceView(dice: dice, size: CGSize(width: 100, height: 100))
+                        DiceView(dice: dice, size: CGSize(width: 80, height: 80))
                             .onTapGesture {
-                                gameController.handleDiceTap(dice)
+                                    gameController.handleDiceTap(dice)
                             }
                             .rotationEffect(.degrees(Double.random(in: 0...360)))
                             .padding()
+
                     }
                 }
                 .padding([.top], 150)
@@ -75,7 +76,7 @@ struct RollView: View {
                 HStack {
                     if gameController.canSave {
                         Button {
-                                gameController.saveScore()
+                            gameController.saveScore()
                         } label: {
                             Text("Save")
                                 .frame(width: 150, height: 70)
@@ -89,8 +90,7 @@ struct RollView: View {
                     
                     if gameController.canRoll {
                         Button {
-                                gameController.roll()
-                            
+                                gameController.roll()                            
                         } label: {
                             Image(systemName: "dice.fill")
                                 .font(.system(size: 60))
@@ -117,7 +117,7 @@ struct RollView: View {
                     .onAppear {
                         
                         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                                gameController.itIsZonk()
+                            gameController.itIsZonk()
                         }
                     }
             }
@@ -128,6 +128,7 @@ struct RollView: View {
         }
         .navigationBarHidden(true)
     }
+    
 }
 
 #Preview {

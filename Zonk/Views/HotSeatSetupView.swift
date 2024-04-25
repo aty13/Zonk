@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct HotSeatSetupView: View {
-    @EnvironmentObject var gameController: GameController
     
+    @State private var players: [Player] = [Player(
+        name: UserDefaultsService.shared.getUsername() ?? "Default",
+        ai: false
+    )]
     @State private var newPlayerName: String = ""
     @State private var isRollScreenActive = false
-    @State private var updatedWinScore = 10000
     
     var body: some View {
         NavigationStack {
@@ -20,11 +22,11 @@ struct HotSeatSetupView: View {
                 Form {
                     Section {
                         List {
-                            ForEach(gameController.players) { player in
+                            ForEach(players) { player in
                                 PlayerListItem(player: player)
                             }
                             .onDelete { indexSet in
-                                gameController.players.remove(atOffsets: indexSet)
+                                players.remove(atOffsets: indexSet)
                             }
                         }
                     } header: {
@@ -32,7 +34,7 @@ struct HotSeatSetupView: View {
                     }
                     .navigationTitle("Players")
                     
-                    if gameController.players.count <= 5 {
+                    if players.count <= 5 {
                         Section {
                             TextField(text: $newPlayerName) {
                                 Text("Player name")
@@ -45,7 +47,7 @@ struct HotSeatSetupView: View {
                                 Button("Add Player") {
                                     withAnimation {
                                         guard !newPlayerName.isEmpty else { return }
-                                        gameController.players.append(
+                                        players.append(
                                             Player(
                                                 name: newPlayerName,
                                                 ai: false
@@ -63,41 +65,26 @@ struct HotSeatSetupView: View {
                             Text("Type player name to add")
                         }
                     }
-                    
-                    Section {
-                        TextField("Winning Score", value: $updatedWinScore, format: .number)
-                            .keyboardType(.numberPad)
-                            .padding()
-                            .background(Color.gray.opacity(0.1))
-                            .cornerRadius(8)
-                            .foregroundColor(.black)
-                            .font(.body)
-                        
-                        Button("Change score target") {
-                            gameController.changeWinscore(updatedWinScore)
-                        }
-                        .padding()
-                        .background(.blue.opacity(0.2))
-                    } header: {
-                        Text("Target score to win, currently \(gameController.winScore)")
-                    }
                 }
                 
-                NavigationLink(destination: RollView()) {
+                NavigationLink(
+                    destination: RollView()
+                        .environmentObject(GameController(players: players))
+                ) {
                     HStack {
                         Image(systemName: "gamecontroller")
-                        Text(gameController.players.count < 2 ? "No less than two players" : "Start Game")
+                        Text(players.count < 2 ? "No less than two players" : "Start Game")
                     }
                     .padding()
                     .foregroundColor(.black)
-                    .background(gameController.players.count < 2 
+                    .background(players.count < 2
                                 ? Color.red.opacity(0.7)
                                 : Color.green.opacity(0.7)
                     )
                     .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
                 }
                 .padding()
-                .disabled(gameController.players.count < 2 ? true : false)
+                .disabled(players.count < 2 ? true : false)
             }
             .background(.green.opacity(0.3))
             

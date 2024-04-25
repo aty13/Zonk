@@ -35,7 +35,24 @@ class GameController: ObservableObject {
     init() {
         let username = UserDefaultsService.shared.getUsername()
         
-        players = [Player(name: username ?? "Default", ai: false)]
+        self.players = [Player(name: username ?? "Default", ai: false)]
+        
+        winScore = 10000
+        currentPlayerIndex = 0
+        unsavedResult = 0
+        dicesAmount = 6
+        canRoll = true
+        canSave = false
+        zonk = false
+        win = false
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        chosenDicesShort = []
+    }
+    
+    init(players: [Player]) {
+        self.players = players
         winScore = 10000
         currentPlayerIndex = 0
         unsavedResult = 0
@@ -197,6 +214,8 @@ class GameController: ObservableObject {
         }
         
         players[currentPlayerIndex].score += unsavedResult
+        
+        players[currentPlayerIndex].zonks = 0
 
         if players[currentPlayerIndex].score >= winScore {
             win = true
@@ -234,7 +253,6 @@ class GameController: ObservableObject {
             players[index].score = 0
         }
         
-        winScore = 10000
         currentPlayerIndex = 0
         unsavedResult = 0
         dicesAmount = 6

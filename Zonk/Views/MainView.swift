@@ -30,12 +30,16 @@ struct MainView: View {
                             y: 2
                     )
                 
-                NavigationLink(destination: RollView()) {
+                NavigationLink(
+                    destination: RollView().environmentObject(GameController())
+                ) {
                     Text("Single Play")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
                 
-                NavigationLink(destination: HotSeatSetupView()) {
+                NavigationLink(
+                    destination: HotSeatSetupView().environmentObject(GameController())
+                ) {
                     Text("Hot seat")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
@@ -96,7 +100,7 @@ struct MainView: View {
                     UserDefaultsService.shared.saveUsername("Default")
                 } else {
                     UserDefaultsService.shared.saveUsername(newPlayerName)
-                }
+                }                
             }) {
                 Text("Save")
                     .foregroundColor(.white)
@@ -107,12 +111,6 @@ struct MainView: View {
             .padding(.top, 10)
         }
 
-    }
-    
-    func saveName() {
-        if !newPlayerName.isEmpty {
-            
-        }
     }
 }
 
