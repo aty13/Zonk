@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C07341C2B12AF93006874F8 /* ZonkView.swift */; };
 		9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E68EE2B13F6A300E8FB61 /* WinView.swift */; };
+		9C13F9B72BE25934006460F8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C13F9B62BE25934006460F8 /* GameKit.framework */; };
+		9C13F9BC2BE25D99006460F8 /* MultiplayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C13F9B82BE25D99006460F8 /* MultiplayerView.swift */; };
+		9C13F9BD2BE25D99006460F8 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C13F9B92BE25D99006460F8 /* GameView.swift */; };
+		9C13F9BE2BE25D99006460F8 /* MessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C13F9BA2BE25D99006460F8 /* MessageView.swift */; };
+		9C13F9BF2BE25D99006460F8 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C13F9BB2BE25D99006460F8 /* ChatView.swift */; };
 		9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */; };
 		9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */; };
 		9C323A732B8583B700E89846 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323A722B8583B700E89846 /* Player.swift */; };
@@ -27,9 +32,14 @@
 		9C8BF4D62B103C63000C256A /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D52B103C63000C256A /* RollView.swift */; };
 		9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D72B103E6F000C256A /* DiceView.swift */; };
 		9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F52BCC655B0090B858 /* ScoreView.swift */; };
+		9C9DF7B42BE4438800EC055E /* TurnBasedGameZonkFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9DF7B32BE4438800EC055E /* TurnBasedGameZonkFunctions.swift */; };
 		9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */; };
 		9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4572BCE21FC0008644D /* UserData.swift */; };
 		9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E45A2BCF54870008644D /* PlayerInfoView.swift */; };
+		9CE55C8C2BE445A300A84ECE /* TurnBasedGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE55C8B2BE445A300A84ECE /* TurnBasedGame.swift */; };
+		9CE55C8F2BE445DD00A84ECE /* TurnBasedGame+GKTurnBasedEventListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE55C8E2BE445DD00A84ECE /* TurnBasedGame+GKTurnBasedEventListener.swift */; };
+		9CE55C912BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE55C902BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift */; };
+		9CE55C932BE4465000A84ECE /* TurnBasedGame+MatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CE55C922BE4465000A84ECE /* TurnBasedGame+MatchData.swift */; };
 		9CE98E522BD9EB3300E61552 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9CE98E512BD9EB3300E61552 /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
@@ -53,6 +63,12 @@
 /* Begin PBXFileReference section */
 		9C07341C2B12AF93006874F8 /* ZonkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkView.swift; sourceTree = "<group>"; };
 		9C0E68EE2B13F6A300E8FB61 /* WinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinView.swift; sourceTree = "<group>"; };
+		9C13F9B42BE25924006460F8 /* Zonk.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Zonk.entitlements; sourceTree = "<group>"; };
+		9C13F9B62BE25934006460F8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		9C13F9B82BE25D99006460F8 /* MultiplayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MultiplayerView.swift; sourceTree = "<group>"; };
+		9C13F9B92BE25D99006460F8 /* GameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		9C13F9BA2BE25D99006460F8 /* MessageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageView.swift; sourceTree = "<group>"; };
+		9C13F9BB2BE25D99006460F8 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSeatSetupView.swift; sourceTree = "<group>"; };
 		9C323A722B8583B700E89846 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
@@ -74,9 +90,14 @@
 		9C8BF4D52B103C63000C256A /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
 		9C8BF4D72B103E6F000C256A /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
 		9C9414F52BCC655B0090B858 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
+		9C9DF7B32BE4438800EC055E /* TurnBasedGameZonkFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedGameZonkFunctions.swift; sourceTree = "<group>"; };
 		9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		9CA6E4572BCE21FC0008644D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		9CA6E45A2BCF54870008644D /* PlayerInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerInfoView.swift; sourceTree = "<group>"; };
+		9CE55C8B2BE445A300A84ECE /* TurnBasedGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TurnBasedGame.swift; sourceTree = "<group>"; };
+		9CE55C8E2BE445DD00A84ECE /* TurnBasedGame+GKTurnBasedEventListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TurnBasedGame+GKTurnBasedEventListener.swift"; sourceTree = "<group>"; };
+		9CE55C902BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		9CE55C922BE4465000A84ECE /* TurnBasedGame+MatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TurnBasedGame+MatchData.swift"; sourceTree = "<group>"; };
 		9CE98E512BD9EB3300E61552 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C13F9B72BE25934006460F8 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,6 +127,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9C13F9AF2BE258DD006460F8 /* MultiplayerView */ = {
+			isa = PBXGroup;
+			children = (
+				9C13F9BB2BE25D99006460F8 /* ChatView.swift */,
+				9C13F9B82BE25D99006460F8 /* MultiplayerView.swift */,
+				9C13F9B92BE25D99006460F8 /* GameView.swift */,
+				9C13F9BA2BE25D99006460F8 /* MessageView.swift */,
+			);
+			path = MultiplayerView;
+			sourceTree = "<group>";
+		};
+		9C13F9B52BE25934006460F8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C13F9B62BE25934006460F8 /* GameKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		9C1D8D902B8C2DCB00947A11 /* RollView */ = {
 			isa = PBXGroup;
 			children = (
@@ -140,6 +181,7 @@
 				9C8BF4B42B102110000C256A /* ZonkTests */,
 				9C8BF4BE2B102110000C256A /* ZonkUITests */,
 				9C8BF4A22B10210F000C256A /* Products */,
+				9C13F9B52BE25934006460F8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -156,6 +198,7 @@
 		9C8BF4A32B10210F000C256A /* Zonk */ = {
 			isa = PBXGroup;
 			children = (
+				9C13F9B42BE25924006460F8 /* Zonk.entitlements */,
 				9C8BF4A42B10210F000C256A /* ZonkApp.swift */,
 				9CA6E4532BCE213D0008644D /* Services */,
 				9C8BF4D12B1023C2000C256A /* Models */,
@@ -196,6 +239,11 @@
 		9C8BF4CE2B102342000C256A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9CE55C8B2BE445A300A84ECE /* TurnBasedGame.swift */,
+				9CE55C8E2BE445DD00A84ECE /* TurnBasedGame+GKTurnBasedEventListener.swift */,
+				9CE55C902BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift */,
+				9C9DF7B32BE4438800EC055E /* TurnBasedGameZonkFunctions.swift */,
+				9CE55C922BE4465000A84ECE /* TurnBasedGame+MatchData.swift */,
 				9C8BF4CF2B102353000C256A /* GameController.swift */,
 			);
 			path = Controller;
@@ -220,6 +268,7 @@
 				9C323EA62BD09905000B69B8 /* HotSeatSetupView */,
 				9C8BF4D52B103C63000C256A /* RollView.swift */,
 				9C1D8D902B8C2DCB00947A11 /* RollView */,
+				9C13F9AF2BE258DD006460F8 /* MultiplayerView */,
 				9C323E9F2BD08EE9000B69B8 /* ViewHelpers */,
 			);
 			path = Views;
@@ -376,21 +425,30 @@
 				9C8BF4D02B102353000C256A /* GameController.swift in Sources */,
 				9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
+				9C9DF7B42BE4438800EC055E /* TurnBasedGameZonkFunctions.swift in Sources */,
 				9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */,
 				9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */,
+				9C13F9BF2BE25D99006460F8 /* ChatView.swift in Sources */,
 				9C8BF4A72B10210F000C256A /* MainView.swift in Sources */,
+				9CE55C8F2BE445DD00A84ECE /* TurnBasedGame+GKTurnBasedEventListener.swift in Sources */,
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,
 				9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */,
 				9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */,
 				9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */,
+				9CE55C912BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift in Sources */,
+				9CE55C932BE4465000A84ECE /* TurnBasedGame+MatchData.swift in Sources */,
 				9C323A732B8583B700E89846 /* Player.swift in Sources */,
 				9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */,
+				9C13F9BC2BE25D99006460F8 /* MultiplayerView.swift in Sources */,
+				9CE55C8C2BE445A300A84ECE /* TurnBasedGame.swift in Sources */,
 				9C323EA82BD0991E000B69B8 /* PlayerListItem.swift in Sources */,
 				9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */,
 				9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */,
+				9C13F9BD2BE25D99006460F8 /* GameView.swift in Sources */,
 				9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */,
+				9C13F9BE2BE25D99006460F8 /* MessageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,6 +610,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Zonk/Zonk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
@@ -570,7 +629,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.arturuvarov.Zonk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -585,6 +644,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
+				CODE_SIGN_ENTITLEMENTS = Zonk/Zonk.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Zonk/Preview Content\"";
@@ -603,7 +663,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.01;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = dev.arturuvarov.Zonk;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

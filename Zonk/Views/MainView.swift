@@ -43,6 +43,14 @@ struct MainView: View {
                     Text("Hot seat")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
+                
+                NavigationLink(
+                    destination: MultiplayerView()
+                ) {
+                    Text("Multiplayer")
+                        .modifier(BorderButtonModifier(borderColor: .black))
+                }
+                
                 Button(action: {
                     withAnimation(.default ) {
                         showPlayerInfo.toggle()
