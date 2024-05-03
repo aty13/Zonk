@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ScoreView: View {
-    @EnvironmentObject var gameController: GameController
+    @EnvironmentObject var gameController: LocalZonkController
     
     var body: some View {
         HStack {
@@ -94,7 +94,7 @@ struct ScoreView: View {
 }
 
 #Preview {
-    let gameController = GameController()
+    let gameController = LocalZonkController()
 //    gameController.players.append(Player(name: "Aty", ai: false))
 //    gameController.players.append(Player(name: "Igor", ai: false))
 //    gameController.players.append(Player(name: "Vika", ai: false))

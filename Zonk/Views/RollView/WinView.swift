@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct WinView: View {
-    @EnvironmentObject var gameController: GameController
+    @EnvironmentObject var gameController: LocalZonkController
     let quit: () -> Void
     
     var body: some View {
@@ -61,5 +61,5 @@ struct WinView: View {
 
 #Preview {
     WinView(quit: {})
-        .environmentObject(GameController())
+        .environmentObject(LocalZonkController())
 }

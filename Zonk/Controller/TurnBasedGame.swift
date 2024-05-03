@@ -32,9 +32,18 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
     @Published var count = 0
     
     // Zonk data
+    @Published var winScore: Int = 10000
+    @Published var unsavedResult: Int = 0
+    @Published var dicesAmount: Int = 6
+    @Published var canRoll: Bool = true
+    @Published var canSave: Bool = false
+    @Published var zonk: Bool = false
+    @Published var win: Bool = false
     @Published var currentRoll: [Dice] = []
-    @Published var canRoll = true
-    @Published var canSave = false
+    @Published var currentTriplets: [Dice] = []
+    @Published var chosenDices: [Dice] = []
+    @Published var chosenDicesShort: [Dice] = []
+    @Published var moves: [Move] = []
     
     // The messages between players.
     @Published var messages: [Message] = []
@@ -62,12 +71,12 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
     
     /// The local player's items.
     var myItems: Int {
-        localParticipant?.items ?? 0
+        localParticipant?.score ?? 0
     }
 
     /// The opponent's items.
     var opponentItems: Int {
-        opponent?.items ?? 0
+        opponent?.score ?? 0
     }
     
     /// The root view controller of the window.
@@ -82,11 +91,24 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
         playingGame = false
         myTurn = false
         currentMatchID = nil
-        localParticipant?.items = 50
+        localParticipant?.score = 0
         opponent = nil
         count = 0
         youWon = false
         youLost = false
+        
+        /// -zonk props
+        unsavedResult = 0
+        dicesAmount = 6
+        canRoll = true
+        canSave = false
+        zonk = false
+        win = false
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        chosenDicesShort = []
+        moves = []
     }
     
     /// Authenticates the local player and registers for turn-based events.
@@ -139,6 +161,18 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
     func startMatch(_ playersToInvite: [GKPlayer]? = nil) {
         // Initialize the match data.
         count = 0
+        /// -zonk props
+        unsavedResult = 0
+        dicesAmount = 6
+        canRoll = true
+        canSave = false
+        zonk = false
+        win = false
+        currentRoll = []
+        currentTriplets = []
+        chosenDices = []
+        chosenDicesShort = []
+        moves = []
         
         // Create a match request.
         let request = GKMatchRequest()
@@ -225,8 +259,11 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
                 saveExchanges(for: match)
 
                 // Pass the turn to the next participant.
-                try await match.endTurn(withNextParticipants: nextParticipants, turnTimeout: GKTurnTimeoutDefault,
-                                        match: gameData)
+                try await match.endTurn(
+                    withNextParticipants: nextParticipants,
+                    turnTimeout: GKTurnTimeoutDefault,
+                    match: gameData
+                )
                 
                 myTurn = false
             }

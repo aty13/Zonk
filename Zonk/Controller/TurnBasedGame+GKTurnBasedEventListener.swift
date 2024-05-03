@@ -187,12 +187,12 @@ extension TurnBasedGame: GKTurnBasedEventListener {
                 // For all exchange item requests, transfer an item from the recipient to the sender.
                 if exchange.sender.player == localParticipant?.player {
                     // Transfer an item from the opponent to the local player.
-                    opponent?.items -= 1
-                    localParticipant?.items += 1
+                    opponent?.score -= 1
+                    localParticipant?.score += 1
                 } else {
                     // Transfer an item from the local player to the opponent.
-                    localParticipant?.items -= 1
-                    opponent?.items += 1
+                    localParticipant?.score -= 1
+                    opponent?.score += 1
                 }
                 // For text message exchange requests, do nothing.
             }

@@ -69,7 +69,11 @@ struct HotSeatSetupView: View {
                 
                 NavigationLink(
                     destination: RollView()
-                        .environmentObject(GameController(players: players))
+                        .environmentObject(
+                            LocalZonkController(
+                                players: players
+                            )
+                        )
                 ) {
                     HStack {
                         Image(systemName: "gamecontroller")
@@ -95,6 +99,6 @@ struct HotSeatSetupView: View {
 
 #Preview {
     HotSeatSetupView()
-        .environmentObject(GameController())
+        .environmentObject(LocalZonkController())
 }
 

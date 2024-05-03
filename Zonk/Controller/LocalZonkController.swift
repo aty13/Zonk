@@ -17,7 +17,7 @@
 
 import Foundation
 
-class GameController: ObservableObject {
+class LocalZonkController: ObservableObject {
     @Published var players: [Player]
     @Published var winScore: Int
     @Published var currentPlayerIndex: Int

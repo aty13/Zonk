@@ -24,13 +24,20 @@ struct Participant: Identifiable {
     var id = UUID()
     var player: GKPlayer
     var avatar = Image(systemName: "person")
-    var items = 50
+    var score = 0
+    var zonks = 0
 }
 
 // Codable game data for sending to players.
 struct GameData: Codable {
     var count: Int
     var items: [String: Int]
+}
+
+struct Move {
+    let id = UUID()
+    var roll: [Int]
+    var picks: [Int]
 }
 
 extension TurnBasedGame {
@@ -46,12 +53,12 @@ extension TurnBasedGame {
         
         // Add the local player's items.
         if let localPlayerName = localParticipant?.player.displayName {
-            items[localPlayerName] = localParticipant?.items
+            items[localPlayerName] = localParticipant?.score
         }
         
         // Add the opponent's items.
         if let opponentPlayerName = opponent?.player.displayName {
-            items[opponentPlayerName] = opponent?.items
+            items[opponentPlayerName] = opponent?.score
         }
         
         let gameData = GameData(count: count, items: items)
@@ -87,14 +94,14 @@ extension TurnBasedGame {
         // Set the local player's items.
         if let localPlayerName = localParticipant?.player.displayName {
             if let items = gameData.items[localPlayerName] {
-                localParticipant?.items = items
+                localParticipant?.score = items
             }
         }
 
         // Set the opponent's items.
         if let opponentPlayerName = opponent?.player.displayName {
             if let items = gameData.items[opponentPlayerName] {
-                opponent?.items = items
+                opponent?.score = items
             }
         }
 //        do {

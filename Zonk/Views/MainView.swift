@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainView: View {
-    @EnvironmentObject var gameController: GameController
+//    @EnvironmentObject var gameController: LocalZonkController
     @State private var showHowToPlay = false
     @State private var showPlayerInfo = false
     @State private var showNameAlert = false
@@ -31,14 +31,14 @@ struct MainView: View {
                     )
                 
                 NavigationLink(
-                    destination: RollView().environmentObject(GameController())
+                    destination: RollView().environmentObject(LocalZonkController())
                 ) {
                     Text("Single Play")
                         .modifier(BorderButtonModifier(borderColor: .black))
                 }
                 
                 NavigationLink(
-                    destination: HotSeatSetupView().environmentObject(GameController())
+                    destination: HotSeatSetupView().environmentObject(LocalZonkController())
                 ) {
                     Text("Hot seat")
                         .modifier(BorderButtonModifier(borderColor: .black))
@@ -124,5 +124,5 @@ struct MainView: View {
 
 #Preview {
     MainView()
-        .environmentObject(GameController())
+//        .environmentObject(LocalZonkController())
 }

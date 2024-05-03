@@ -27,7 +27,7 @@
 		9C8BF4B62B102110000C256A /* ZonkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4B52B102110000C256A /* ZonkTests.swift */; };
 		9C8BF4C02B102110000C256A /* ZonkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4BF2B102110000C256A /* ZonkUITests.swift */; };
 		9C8BF4C22B102110000C256A /* ZonkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4C12B102110000C256A /* ZonkUITestsLaunchTests.swift */; };
-		9C8BF4D02B102353000C256A /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4CF2B102353000C256A /* GameController.swift */; };
+		9C8BF4D02B102353000C256A /* LocalZonkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4CF2B102353000C256A /* LocalZonkController.swift */; };
 		9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D22B1023CD000C256A /* Dice.swift */; };
 		9C8BF4D62B103C63000C256A /* RollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D52B103C63000C256A /* RollView.swift */; };
 		9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4D72B103E6F000C256A /* DiceView.swift */; };
@@ -85,7 +85,7 @@
 		9C8BF4BB2B102110000C256A /* ZonkUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZonkUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4BF2B102110000C256A /* ZonkUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkUITests.swift; sourceTree = "<group>"; };
 		9C8BF4C12B102110000C256A /* ZonkUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		9C8BF4CF2B102353000C256A /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
+		9C8BF4CF2B102353000C256A /* LocalZonkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalZonkController.swift; sourceTree = "<group>"; };
 		9C8BF4D22B1023CD000C256A /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
 		9C8BF4D52B103C63000C256A /* RollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RollView.swift; sourceTree = "<group>"; };
 		9C8BF4D72B103E6F000C256A /* DiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceView.swift; sourceTree = "<group>"; };
@@ -244,7 +244,7 @@
 				9CE55C902BE445F800A84ECE /* TurnBasedGame+GKTurnBasedMatchmakerViewControllerDelegate.swift */,
 				9C9DF7B32BE4438800EC055E /* TurnBasedGameZonkFunctions.swift */,
 				9CE55C922BE4465000A84ECE /* TurnBasedGame+MatchData.swift */,
-				9C8BF4CF2B102353000C256A /* GameController.swift */,
+				9C8BF4CF2B102353000C256A /* LocalZonkController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -422,7 +422,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9C8BF4D02B102353000C256A /* GameController.swift in Sources */,
+				9C8BF4D02B102353000C256A /* LocalZonkController.swift in Sources */,
 				9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
 				9C9DF7B42BE4438800EC055E /* TurnBasedGameZonkFunctions.swift in Sources */,

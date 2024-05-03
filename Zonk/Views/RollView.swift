@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RollView: View {
-    @EnvironmentObject var gameController: GameController
+    @EnvironmentObject var gameController: LocalZonkController
     @Environment(\.dismiss) private var dismiss
     @State private var isRestartPresentingConfirm: Bool = false
     @State private var isQuitPresentingConfirm: Bool = false
@@ -133,5 +133,5 @@ struct RollView: View {
 
 #Preview {
     RollView()
-        .environmentObject(GameController())
+        .environmentObject(LocalZonkController())
 }
