@@ -16,6 +16,7 @@
 		9C13F9BF2BE25D99006460F8 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C13F9BB2BE25D99006460F8 /* ChatView.swift */; };
 		9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */; };
 		9C1D8D922B92BEDA00947A11 /* HotSeatSetupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */; };
+		9C3174E72BE5D72E00D15BC5 /* MultiplayerScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3174E62BE5D72E00D15BC5 /* MultiplayerScoreView.swift */; };
 		9C323A732B8583B700E89846 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323A722B8583B700E89846 /* Player.swift */; };
 		9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */; };
 		9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA22BD0900C000B69B8 /* TopButton.swift */; };
@@ -71,6 +72,7 @@
 		9C13F9BB2BE25D99006460F8 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
 		9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
 		9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotSeatSetupView.swift; sourceTree = "<group>"; };
+		9C3174E62BE5D72E00D15BC5 /* MultiplayerScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerScoreView.swift; sourceTree = "<group>"; };
 		9C323A722B8583B700E89846 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
 		9C323EA22BD0900C000B69B8 /* TopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 				9C13F9BB2BE25D99006460F8 /* ChatView.swift */,
 				9C13F9B82BE25D99006460F8 /* MultiplayerView.swift */,
 				9C13F9B92BE25D99006460F8 /* GameView.swift */,
+				9C3174E62BE5D72E00D15BC5 /* MultiplayerScoreView.swift */,
 				9C13F9BA2BE25D99006460F8 /* MessageView.swift */,
 			);
 			path = MultiplayerView;
@@ -426,6 +429,7 @@
 				9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
 				9C9DF7B42BE4438800EC055E /* TurnBasedGameZonkFunctions.swift in Sources */,
+				9C3174E72BE5D72E00D15BC5 /* MultiplayerScoreView.swift in Sources */,
 				9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */,
 				9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */,
 				9C13F9BF2BE25D99006460F8 /* ChatView.swift in Sources */,

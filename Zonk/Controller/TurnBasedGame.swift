@@ -56,7 +56,7 @@ class TurnBasedGame: NSObject, GKMatchDelegate, GKLocalPlayerListener, Observabl
     
     /// The opponent's name.
     var opponentName: String {
-        opponent?.player.displayName ?? "Invitation Pending"
+        opponent?.player.displayName ?? "Invited"
     }
     
     /// The local player's avatar image.

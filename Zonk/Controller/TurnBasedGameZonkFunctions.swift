@@ -27,7 +27,7 @@ extension TurnBasedGame {
         
         currentRoll = result
         
-        let triplets = areThereAnyTriplets();
+        let triplets = areThereAnyTriplets()
         
         if let triplets {
             currentTriplets = currentRoll.filter { triplets.contains($0.value) }

@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-
-
 struct GameView: View {
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
     @ObservedObject var game: TurnBasedGame
     @State private var showMessages: Bool = false
     
     var body: some View {
         ZStack {
             VStack(spacing: 20) {
-                Button("Forfeit") {
-                    Task {
-                        await game.forfeitMatch()
-                    }
+                MultiplayerScoreView(game: game)
+                    .padding(.top, 20)
+                Button("Quit") {
+                    game.quitGame()
                 }
+                
                 HStack {
                     HStack(alignment: .top) {
                         Form {
+                            
                             Section("Score") {
                                 HStack {
                                     HStack {
@@ -61,28 +61,17 @@ struct GameView: View {
                                 .listRowBackground(Rectangle().fill(game.myTurn ? .white : .blue.opacity(0.25)))
                                 
                                 HStack {
-                                    Text("Count")
+                                    Text("Unsaved result")
                                         .lineLimit(2)
                                     Spacer()
                                     
-                                    Text("\(game.count)")
+                                    Text("\(game.unsavedResult)")
                                 }
-                                
-                                
-                                //                                if let matchMessage = game.matchMessage {
-                                //                                    HStack {
-                                //                                        Text(matchMessage)
-                                //                                    }
-                                //                                }
                             }
-                            
                         }
                         .frame(height: 180)
-                        //                        ScoreView()
                         
                         Spacer()
-                        
-                        
                     }
                     
                     Spacer()
@@ -92,7 +81,7 @@ struct GameView: View {
                     ForEach(game.currentRoll) { dice in
                         DiceView(dice: dice, size: CGSize(width: 80, height: 80))
                             .onTapGesture {
-                                //                                    game.handleDiceTap(dice)
+                                game.handleDiceTap(dice)
                             }
                             .rotationEffect(.degrees(Double.random(in: 0...360)))
                             .padding()
@@ -107,7 +96,7 @@ struct GameView: View {
                 HStack {
                     if game.canSave {
                         Button {
-                            //                            game.saveScore()
+                            game.saveScore()
                         } label: {
                             Text("Save")
                                 .frame(width: 150, height: 70)
@@ -122,10 +111,6 @@ struct GameView: View {
                     if game.canRoll {
                         Button {
                             game.roll()
-                            Task {
-                                await game.takeTurn()
-                            }
-                            
                         } label: {
                             Image(systemName: "dice.fill")
                                 .font(.system(size: 60))
