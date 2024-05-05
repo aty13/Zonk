@@ -12,15 +12,11 @@ struct BorderButtonModifier: ViewModifier {
     
     func body(content: Content) -> some View {
         content
-            .frame(width: 100)
-            .padding()
-            .background(Color.white)
-            .foregroundColor(.black)
-            .overlay(
-                RoundedRectangle(cornerRadius: 10)
-                    .stroke(borderColor, lineWidth: 2)
-            )
-            .cornerRadius(10)
-            .shadow(color: .gray.opacity(0.2), radius: 5)
+            .foregroundStyle(.white)
+            .font(.title3)
+            .fontWeight(.bold)
+            .frame(width: 150)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 70)
     }
 }
