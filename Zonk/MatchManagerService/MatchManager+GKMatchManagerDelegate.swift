@@ -9,8 +9,16 @@ import Foundation
 import GameKit
 
 extension MatchManager: GKMatchDelegate {
+    
     func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
         let content = String(decoding: data, as: UTF8.self)
+        
+        if content.starts(with: "strData:") {
+            let message = content.replacing("strData:", with: "")
+            receivedString(message)
+        } else {
+            print("content is:\n\(content)")
+        }
         
         print(content)
     }
@@ -30,6 +38,15 @@ extension MatchManager: GKMatchDelegate {
     }
     
     func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
+        guard state == .disconnected && !isGameOver else { return }
         
+        let alert = UIAlertController(title: "Player disconnected", message: "Other player has been disconnected", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
+            self.match?.disconnect()
+        }))
+        
+        DispatchQueue.main.async {
+//            self.
+        }
     }
 }

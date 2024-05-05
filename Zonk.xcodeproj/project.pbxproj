@@ -31,6 +31,7 @@
 		9C933B852BE6FC95001629D2 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933B842BE6FC95001629D2 /* MainView.swift */; };
 		9C933B882BE700D1001629D2 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933B872BE700D1001629D2 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */; };
 		9C933B8A2BE70B2D001629D2 /* MatchManager+GKMatchManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C933B892BE70B2D001629D2 /* MatchManager+GKMatchManagerDelegate.swift */; };
+		9C933B8D2BE72551001629D2 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C933B8C2BE72551001629D2 /* GameKit.framework */; };
 		9C9414F62BCC655B0090B858 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C9414F52BCC655B0090B858 /* ScoreView.swift */; };
 		9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */; };
 		9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CA6E4572BCE21FC0008644D /* UserData.swift */; };
@@ -84,6 +85,7 @@
 		9C933B842BE6FC95001629D2 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		9C933B872BE700D1001629D2 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchmakerViewControllerDelegate.swift"; sourceTree = "<group>"; };
 		9C933B892BE70B2D001629D2 /* MatchManager+GKMatchManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKMatchManagerDelegate.swift"; sourceTree = "<group>"; };
+		9C933B8C2BE72551001629D2 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		9C9414F52BCC655B0090B858 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		9CA6E4542BCE214D0008644D /* UserDefaultsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsService.swift; sourceTree = "<group>"; };
 		9CA6E4572BCE21FC0008644D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9C933B8D2BE72551001629D2 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -151,6 +154,7 @@
 				9C8BF4B42B102110000C256A /* ZonkTests */,
 				9C8BF4BE2B102110000C256A /* ZonkUITests */,
 				9C8BF4A22B10210F000C256A /* Products */,
+				9C933B8B2BE72551001629D2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -248,6 +252,14 @@
 				9C933B892BE70B2D001629D2 /* MatchManager+GKMatchManagerDelegate.swift */,
 			);
 			path = MatchManagerService;
+			sourceTree = "<group>";
+		};
+		9C933B8B2BE72551001629D2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9C933B8C2BE72551001629D2 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		9CA6E4532BCE213D0008644D /* Services */ = {

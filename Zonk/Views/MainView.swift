@@ -17,6 +17,7 @@ struct MainView: View {
             }
             else if matchManager.inMatch {
                 RollView()
+                    .environmentObject(GameController())
             }
             else {
                 MenuView(matchManager: matchManager)
