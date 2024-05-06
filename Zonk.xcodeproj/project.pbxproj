@@ -15,6 +15,7 @@
 		9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */; };
 		9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA22BD0900C000B69B8 /* TopButton.swift */; };
 		9C323EA82BD0991E000B69B8 /* PlayerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */; };
+		9C3928152BE87084008C6029 /* MultiplayerRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3928142BE87084008C6029 /* MultiplayerRollView.swift */; };
 		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
 		9C8BF4A72B10210F000C256A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MenuView.swift */; };
 		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
@@ -65,6 +66,7 @@
 		9C323EA02BD08F0A000B69B8 /* ButtonModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonModifiers.swift; sourceTree = "<group>"; };
 		9C323EA22BD0900C000B69B8 /* TopButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopButton.swift; sourceTree = "<group>"; };
 		9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerListItem.swift; sourceTree = "<group>"; };
+		9C3928142BE87084008C6029 /* MultiplayerRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerRollView.swift; sourceTree = "<group>"; };
 		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
 		9C8BF4A62B10210F000C256A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				9C8BF4D52B103C63000C256A /* RollView.swift */,
 				9C1D8D902B8C2DCB00947A11 /* RollView */,
 				9C323E9F2BD08EE9000B69B8 /* ViewHelpers */,
+				9C3928142BE87084008C6029 /* MultiplayerRollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */,
 				9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */,
 				9C8BF4A72B10210F000C256A /* MenuView.swift in Sources */,
+				9C3928152BE87084008C6029 /* MultiplayerRollView.swift in Sources */,
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
 				9C8BF4D32B1023CD000C256A /* Dice.swift in Sources */,

@@ -15,6 +15,7 @@ class MatchManager: NSObject, ObservableObject {
     
     @Published var currentlyRolling = false
     @Published var lastMoves = [Move]()
+    @Published var messages = [Message]()
     
     var match: GKMatch?
     var localPlayer = GKLocalPlayer.local
@@ -75,6 +76,10 @@ class MatchManager: NSObject, ObservableObject {
         sendString("began: \(playerUUIDKey)")
     }
     
+    func swapRoles() {
+        currentlyRolling.toggle()
+    }
+    
     func receivedString(_ message: String) {
         let messageSplit = message.split(separator: ":")
         
@@ -91,10 +96,19 @@ class MatchManager: NSObject, ObservableObject {
             }
             
             inMatch = true
-            currentlyRolling = true
+            currentlyRolling = playerUUIDKey < parameter
+        case "message":
+            sendString("new:\(parameter)")
+            swapRoles()
             
+            appendNewMessage(message: parameter)
+        
         default:
             break
         }
+    }
+    
+    func appendNewMessage(message: String) {
+        messages.append(Message(text: message))
     }
 }

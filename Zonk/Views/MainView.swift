@@ -16,8 +16,7 @@ struct MainView: View {
                 Text("Game Over!")
             }
             else if matchManager.inMatch {
-                RollView()
-                    .environmentObject(GameController())
+                MultiplayerRollView(matchManager: matchManager)
             }
             else {
                 MenuView(matchManager: matchManager)

@@ -16,8 +16,14 @@ enum PlayerAuthState: String {
     case resticted = "You're not allowed to play multiplayer games!"
 }
 
-struct Move {
+struct Move: Identifiable {
     let id = UUID()
     var rolls = [Int]()
     var picks = [Int]()
+}
+
+
+struct Message: Identifiable {
+    let id = UUID()
+    var text: String    
 }
