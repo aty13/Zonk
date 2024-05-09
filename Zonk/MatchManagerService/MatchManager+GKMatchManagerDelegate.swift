@@ -7,46 +7,76 @@
 
 import Foundation
 import GameKit
+import SwiftUI
 
 extension MatchManager: GKMatchDelegate {
-    
-    func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
-        let content = String(decoding: data, as: UTF8.self)
-        
-        if content.starts(with: "strData:") {
-            let message = content.replacing("strData:", with: "")
-            receivedString(message)
-        } else {
-            print("content is:\n\(content)")
-        }
-        
-        print(content)
-    }
-    
-    func sendString(_ message: String) {
-        print(message)
-        guard let encoded = "strData: \(message)".data(using: .utf8) else { return }
-        sendData(encoded, mode: .reliable)
-    }
-    
-    func sendData(_ data: Data, mode: GKMatch.SendDataMode) {
-        do {
-            try match?.sendData(toAllPlayers: data, with: mode)
-        } catch {
-            print(error.localizedDescription)
-        }
-    }
-    
-    func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
-        guard state == .disconnected && !isGameOver else { return }
-        
-        let alert = UIAlertController(title: "Player disconnected", message: "Other player has been disconnected", preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { _ in
-            self.match?.disconnect()
-        }))
-        
-        DispatchQueue.main.async {
-//            self.
-        }
-    }
+    /// Handles a connected, disconnected, or unknown player state.
+       /// - Tag:didChange
+       func match(_ match: GKMatch, player: GKPlayer, didChange state: GKPlayerConnectionState) {
+           switch state {
+           case .connected:
+               print("\(player.displayName) Connected")
+               
+               // For automatch, set the opponent and load their avatar.
+               if match.expectedPlayerCount == 0 {
+                   opponent = match.players[0]
+                   
+                   // Load the opponent's avatar.
+                   opponent?.loadPhoto(for: GKPlayer.PhotoSize.small) { (image, error) in
+                       if let image {
+                           self.opponentAvatar = Image(uiImage: image)
+                       }
+                       if let error {
+                           print("Error: \(error.localizedDescription).")
+                       }
+                   }
+               }
+           case .disconnected:
+               print("\(player.displayName) Disconnected")
+           default:
+               print("\(player.displayName) Connection Unknown")
+           }
+       }
+       
+       /// Handles an error during the matchmaking process.
+       func match(_ match: GKMatch, didFailWithError error: Error?) {
+           print("\n\nMatch object fails with error: \(error!.localizedDescription)")
+       }
+
+       /// Reinvites a player when they disconnect from the match.
+       func match(_ match: GKMatch, shouldReinviteDisconnectedPlayer player: GKPlayer) -> Bool {
+           return true
+       }
+       
+       /// Handles receiving a message from another player.
+       /// - Tag:didReceiveData
+       func match(_ match: GKMatch, didReceive data: Data, fromRemotePlayer player: GKPlayer) {
+           // Decode the data representation of the game data.
+           let gameData = decode(matchData: data)
+           
+           // Update the interface from the game data.
+           if let text = gameData?.message {
+               // Add the message to the chat view.
+               let message = Message(content: text, playerName: player.displayName, isLocalPlayer: false)
+               messages.append(message)
+           } else if let score = gameData?.score {
+               // Show the opponent's score.
+               opponentScore = score
+           } else if (gameData?.nextPlayer) != nil {
+               currentlyRolling = !currentlyRolling
+               
+           } else if let outcome = gameData?.outcome {
+               // Show the outcome of the game.
+               switch outcome {
+               case "forfeit":
+                   opponentForfeit = true
+               case "won":
+                   youWon = true
+               case "lost":
+                   opponentWon = true
+               default:
+                   return
+               }
+           }
+       }
 }

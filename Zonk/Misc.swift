@@ -13,17 +13,11 @@ enum PlayerAuthState: String {
     case authenticated = ""
     
     case error = "Error occured during logging in to the Game Center"
-    case resticted = "You're not allowed to play multiplayer games!"
+    case restricted = "You're not allowed to play multiplayer games!"
 }
 
 struct Move: Identifiable {
     let id = UUID()
     var rolls = [Int]()
     var picks = [Int]()
-}
-
-
-struct Message: Identifiable {
-    let id = UUID()
-    var text: String    
 }

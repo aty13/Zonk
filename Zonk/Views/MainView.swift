@@ -6,24 +6,73 @@
 //
 
 import SwiftUI
+import GameKit
 
 struct MainView: View {
-    @StateObject var matchManager = MatchManager()
+    @StateObject private var game = MatchManager()
+    @State private var showFriends = false
     
     var body: some View {
-        ZStack {
-            if matchManager.isGameOver {
-                Text("Game Over!")
+        NavigationStack {
+            VStack(spacing: 20) {
+                
+                Text("Zonk!")
+                    .font(.system(size: 80, design: .rounded))
+                    .fontWeight(.heavy)
+                    .padding([.bottom, .top], 75)
+                    .foregroundStyle(.white)
+                    .shadow(color: Color.primary, radius: 3, x: 2, y: 2)
+                
+                NavigationLink(
+                    destination: RollView().environmentObject(GameController())
+                ) {
+                    
+                    Text("Single Play")
+                        .modifier(BorderButtonModifier(borderColor: .black))
+                        .background(Capsule(style: .circular))
+                }
+                
+                NavigationLink(
+                    destination: HotSeatSetupView().environmentObject(GameController())
+                ) {
+                    Text("Hot seat")
+                        .modifier(BorderButtonModifier(borderColor: .black))
+                        .background(Capsule(style: .circular))
+                }
+                
+                Button {
+                    game.choosePlayer()
+                } label: {
+                    Text("Multiplayer")
+                        .modifier(BorderButtonModifier(borderColor: .black))
+                        .background(
+                            Capsule(style: .circular)
+                                .fill(game.matchAvailable ? .blue : .gray)
+                        )
+                }
+                .disabled(!game.matchAvailable)
+                
+                Spacer()
             }
-            else if matchManager.inMatch {
-                MultiplayerRollView(matchManager: matchManager)
-            }
-            else {
-                MenuView(matchManager: matchManager)
-            }
+            .frame(maxWidth: .infinity)
+            .navigationBarHidden(true)
+            .background(
+                Image("background-main")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+            )
         }
+        // Authenticate the local player when the game first launches.
         .onAppear {
-            matchManager.authenticateUser()
+            if !game.playingGame {
+                game.authenticatePlayer()
+            }
+        }
+        
+        // Display the game interface if a match is ongoing.
+        .fullScreenCover(isPresented: $game.playingGame) {
+            MultiplayerRollView(game: game)
         }
     }
 }

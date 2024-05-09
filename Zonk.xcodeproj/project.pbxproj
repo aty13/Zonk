@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9C0021202BEB038D009C0A53 /* MatchManager+GKLocalPlayerListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C00211F2BEB038D009C0A53 /* MatchManager+GKLocalPlayerListener.swift */; };
+		9C0021222BEB0418009C0A53 /* MatchData+MatchData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0021212BEB0418009C0A53 /* MatchData+MatchData.swift */; };
+		9C0021262BEB0FEB009C0A53 /* MatchManager+Messages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0021252BEB0FEB009C0A53 /* MatchManager+Messages.swift */; };
 		9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C07341C2B12AF93006874F8 /* ZonkView.swift */; };
 		9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0E68EE2B13F6A300E8FB61 /* WinView.swift */; };
 		9C1D8D8F2B8C2D7000947A11 /* HowToPlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */; };
@@ -17,7 +20,6 @@
 		9C323EA82BD0991E000B69B8 /* PlayerListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C323EA72BD0991E000B69B8 /* PlayerListItem.swift */; };
 		9C3928152BE87084008C6029 /* MultiplayerRollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C3928142BE87084008C6029 /* MultiplayerRollView.swift */; };
 		9C8BF4A52B10210F000C256A /* ZonkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A42B10210F000C256A /* ZonkApp.swift */; };
-		9C8BF4A72B10210F000C256A /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A62B10210F000C256A /* MenuView.swift */; };
 		9C8BF4A92B102110000C256A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4A82B102110000C256A /* Assets.xcassets */; };
 		9C8BF4AC2B102110000C256A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9C8BF4AB2B102110000C256A /* Preview Assets.xcassets */; };
 		9C8BF4B62B102110000C256A /* ZonkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C8BF4B52B102110000C256A /* ZonkTests.swift */; };
@@ -58,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9C00211F2BEB038D009C0A53 /* MatchManager+GKLocalPlayerListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+GKLocalPlayerListener.swift"; sourceTree = "<group>"; };
+		9C0021212BEB0418009C0A53 /* MatchData+MatchData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchData+MatchData.swift"; sourceTree = "<group>"; };
+		9C0021252BEB0FEB009C0A53 /* MatchManager+Messages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MatchManager+Messages.swift"; sourceTree = "<group>"; };
 		9C07341C2B12AF93006874F8 /* ZonkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkView.swift; sourceTree = "<group>"; };
 		9C0E68EE2B13F6A300E8FB61 /* WinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinView.swift; sourceTree = "<group>"; };
 		9C1D8D8E2B8C2D7000947A11 /* HowToPlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowToPlayView.swift; sourceTree = "<group>"; };
@@ -69,7 +74,6 @@
 		9C3928142BE87084008C6029 /* MultiplayerRollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerRollView.swift; sourceTree = "<group>"; };
 		9C8BF4A12B10210F000C256A /* Zonk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Zonk.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9C8BF4A42B10210F000C256A /* ZonkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZonkApp.swift; sourceTree = "<group>"; };
-		9C8BF4A62B10210F000C256A /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
 		9C8BF4A82B102110000C256A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9C8BF4AB2B102110000C256A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9C8BF4B12B102110000C256A /* ZonkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZonkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,7 +239,6 @@
 			isa = PBXGroup;
 			children = (
 				9C933B842BE6FC95001629D2 /* MainView.swift */,
-				9C8BF4A62B10210F000C256A /* MenuView.swift */,
 				9CA6E4592BCF54730008644D /* MainView */,
 				9C1D8D912B92BEDA00947A11 /* HotSeatSetupView.swift */,
 				9C323EA62BD09905000B69B8 /* HotSeatSetupView */,
@@ -253,6 +256,9 @@
 				9C933B822BE6E739001629D2 /* MatchManager.swift */,
 				9C933B872BE700D1001629D2 /* MatchManager+GKMatchmakerViewControllerDelegate.swift */,
 				9C933B892BE70B2D001629D2 /* MatchManager+GKMatchManagerDelegate.swift */,
+				9C00211F2BEB038D009C0A53 /* MatchManager+GKLocalPlayerListener.swift */,
+				9C0021212BEB0418009C0A53 /* MatchData+MatchData.swift */,
+				9C0021252BEB0FEB009C0A53 /* MatchManager+Messages.swift */,
 			);
 			path = MatchManagerService;
 			sourceTree = "<group>";
@@ -418,9 +424,10 @@
 				9C933B852BE6FC95001629D2 /* MainView.swift in Sources */,
 				9C0E68EF2B13F6A300E8FB61 /* WinView.swift in Sources */,
 				9C8BF4D82B103E6F000C256A /* DiceView.swift in Sources */,
+				9C0021222BEB0418009C0A53 /* MatchData+MatchData.swift in Sources */,
+				9C0021202BEB038D009C0A53 /* MatchManager+GKLocalPlayerListener.swift in Sources */,
 				9CA6E45B2BCF54870008644D /* PlayerInfoView.swift in Sources */,
 				9CA6E4582BCE21FC0008644D /* UserData.swift in Sources */,
-				9C8BF4A72B10210F000C256A /* MenuView.swift in Sources */,
 				9C3928152BE87084008C6029 /* MultiplayerRollView.swift in Sources */,
 				9C07341D2B12AF93006874F8 /* ZonkView.swift in Sources */,
 				9C8BF4D62B103C63000C256A /* RollView.swift in Sources */,
@@ -428,6 +435,7 @@
 				9CA6E4552BCE214D0008644D /* UserDefaultsService.swift in Sources */,
 				9C933B882BE700D1001629D2 /* MatchManager+GKMatchmakerViewControllerDelegate.swift in Sources */,
 				9C933B812BE6E3EC001629D2 /* Misc.swift in Sources */,
+				9C0021262BEB0FEB009C0A53 /* MatchManager+Messages.swift in Sources */,
 				9C323EA32BD0900C000B69B8 /* TopButton.swift in Sources */,
 				9C323EA12BD08F0A000B69B8 /* ButtonModifiers.swift in Sources */,
 				9C933B832BE6E739001629D2 /* MatchManager.swift in Sources */,
