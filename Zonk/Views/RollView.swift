@@ -106,7 +106,7 @@ struct RollView: View {
             }
             .padding()
             .background(
-                Image("background")
+                Image("background-green")
                     .resizable()
                     .aspectRatio(contentMode: .fill)
                     .ignoresSafeArea()

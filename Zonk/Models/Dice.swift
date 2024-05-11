@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Dice: Identifiable, Equatable, Hashable {
+struct Dice: Identifiable, Equatable, Hashable, Codable {
     var id: UUID
     let value: Int
     

@@ -26,6 +26,8 @@ class MatchManager: NSObject, ObservableObject {
     @Published var opponentForfeit = false
     @Published var youWon = false
     @Published var opponentWon = false
+    
+    // Current turn at local
     @Published var currentlyRolling = false
     
     
@@ -35,11 +37,22 @@ class MatchManager: NSObject, ObservableObject {
     @Published var opponent: GKPlayer? = nil
     @Published var messages: [Message] = []
     @Published var myScore = 0
+    @Published var myZonks = 0
     @Published var opponentScore = 0
+    @Published var opponentZonks = 0
     
-    // The voice chat properties.
-    @Published var voiceChat: GKVoiceChat? = nil
-    @Published var opponentSpeaking = false
+    // Zonk props
+    @Published var winScore: Int = 10000
+    @Published var dicesAmount: Int = 6
+    @Published var canRoll: Bool = true
+    @Published var canSave: Bool = false
+    @Published var zonk: Bool = false
+    @Published var currentTriplets: [Dice] = []
+    @Published var chosenDicesShort: [Dice] = []
+    
+    @Published var unsavedResult: Int = 0
+    @Published var currentRoll: [Dice] = []
+    @Published var chosenDices: [Dice] = []
     
     /// The name of the match.
     var matchName: String {
@@ -195,36 +208,54 @@ class MatchManager: NSObject, ObservableObject {
         reportProgress()
     }
     
-    /// Takes the player's turn.
-    /// - Tag:takeAction
-    func takeAction() {
-        // Take your turn by incrementing the counter.
-        myScore += 1
-        
-        // If your score is 10 points higher or reaches the maximum, you win the match.
-        if (myScore - opponentScore == 10) || (myScore == 100) {
-            endMatch()
-            return
-        }
-        
-        // Otherwise, send the game data to the other player.
+    /// - Tag: Rolled
+    func rollOrDiceTapped() {
+
         do {
-            let data = encode(score: myScore)
+            let data = encode(
+                unsavedResult: unsavedResult,
+                currentRoll: currentRoll,
+                chosenDices: chosenDices
+            )
+            
             try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
         } catch {
             print("Error: \(error.localizedDescription).")
         }
     }
     
-    func swapRoles() {
-        currentlyRolling = !currentlyRolling
-        
+    /// - Tag: Save tapped
+    func saveButtonTapped() {
+
         do {
-            let data = encode(nextPlayer: true)
+            let data = encode(
+                score: myScore, nextPlayer: true
+            )
+            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            
+            currentlyRolling = !currentlyRolling
+            
+            resetState()
+            
+        } catch {
+            print("Error: \(error.localizedDescription).")
+        }
+    }
+    
+    func zonkHappened() {
+        do {
+            let data = encode(
+                score: myScore, nextPlayer: true, zonks: myZonks
+            )
             
             try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            
+            currentlyRolling = !currentlyRolling
+            
+            resetState()
+            
         } catch {
-            print(error)
+            print("Error: \(error.localizedDescription).")
         }
     }
     
@@ -266,9 +297,13 @@ class MatchManager: NSObject, ObservableObject {
     
     /// Saves the local player's score.
     /// - Tag:saveScore
-    func saveScore() {
-        GKLeaderboard.submitScore(myScore, context: 0, player: GKLocalPlayer.local,
-                                  leaderboardIDs: ["123"]) { error in
+    func saveScoreToLeaderboard() {
+        GKLeaderboard.submitScore(
+            myScore,
+            context: 0,
+            player: GKLocalPlayer.local,
+            leaderboardIDs: ["123"]
+        ) { error in
             if let error {
                 print("Error: \(error.localizedDescription).")
             }
@@ -282,7 +317,6 @@ class MatchManager: NSObject, ObservableObject {
         myMatch?.disconnect()
         myMatch?.delegate = nil
         myMatch = nil
-        voiceChat = nil
         opponent = nil
         opponentAvatar = Image(systemName: "person.crop.circle")
         messages = []
@@ -295,6 +329,14 @@ class MatchManager: NSObject, ObservableObject {
         // Reset the score.
         myScore = 0
         opponentScore = 0
+    }
+    
+    /// Reset state after player makes a move
+    func resetState() {
+        currentRoll = []
+        chosenDices = []
+        chosenDicesShort = []
+        unsavedResult = 0
     }
     
     // Rewarding players with achievements.

@@ -54,20 +54,32 @@ extension MatchManager: GKMatchDelegate {
            // Decode the data representation of the game data.
            let gameData = decode(matchData: data)
            
-           // Update the interface from the game data.
-           if let text = gameData?.message {
-               // Add the message to the chat view.
-               let message = Message(content: text, playerName: player.displayName, isLocalPlayer: false)
-               messages.append(message)
-           } else if let score = gameData?.score {
-               // Show the opponent's score.
-               opponentScore = score
-           } else if (gameData?.nextPlayer) != nil {
-               currentlyRolling = !currentlyRolling
+           switch gameData?.code {
+           case "pick":
+               unsavedResult = gameData?.unsavedResult ?? 0
+               currentRoll = gameData?.currentRoll ?? []
+               chosenDices = gameData?.chosenDices ?? []
                
-           } else if let outcome = gameData?.outcome {
-               // Show the outcome of the game.
-               switch outcome {
+           case "save":
+               opponentScore = gameData?.score ?? 0
+               opponentZonks = 0
+               
+               resetState()
+               currentlyRolling = true
+               
+           case "zonk":
+               opponentScore = gameData?.score ?? 0
+               opponentZonks = gameData?.zonks ?? 0
+               currentlyRolling = true
+               
+           case "message":
+               if let text = gameData?.message {
+                   // Add the message to the chat view.
+                   let message = Message(content: text, playerName: player.displayName, isLocalPlayer: false)
+                   messages.append(message)
+               }
+           default:
+               switch gameData?.outcome {
                case "forfeit":
                    opponentForfeit = true
                case "won":

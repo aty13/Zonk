@@ -18,106 +18,111 @@ struct MultiplayerRollView: View {
     @State private var isChatting = false
     
     var body: some View {
-        VStack {
-            Text("Real-Time Game")
-                .font(.title)
-            
-            Form {
-                Section("Game Data") {
-                    // Display the local player's avatar, name, and score.
-                    HStack {
-                        HStack {
-                            game.myAvatar
-                                .resizable()
-                                .frame(width: 35.0, height: 35.0)
-                                .clipShape(Circle())
+        ZStack {
+            VStack {
+                GeometryReader { geometry in
+                    MultiplayerScoreView(game: game)
+                        .padding(.top, -20)
+                    LazyVGrid(columns: [GridItem(), GridItem()]) {
+                        ForEach(game.currentRoll) { dice in
+                            DiceView(dice: dice, size: CGSize(width: 80, height: 80))
+                                .onTapGesture {
+                                    game.handleDiceTap(dice)
+                                }
+                                .rotationEffect(.degrees(Double.random(in: 0...360)))
+                                .padding()
                             
-                            Text(game.myName + " (me)")
-                                .lineLimit(2)
                         }
-                        Spacer()
-                        
-                        Text("\(game.myScore)")
-                            .lineLimit(2)
                     }
-                    
-                    // Display the opponent's avatar, name, and score.
-                    HStack {
-                        HStack {
-                            game.opponentAvatar
-                                .resizable()
-                                .frame(width: 35.0, height: 35.0)
-                                .clipShape(Circle())
-                            
-                            Text(game.opponentName)
-                                .lineLimit(2)
-                        }
-                        Spacer()
-                        
-                        Text("\(game.opponentScore)")
-                            .lineLimit(2)
-                    }
-                }
-                .listItemTint(.blue)
-                
-                Section("Game Controls") {
-                    Button("Take Action") {
-                        game.takeAction()
-                    }
-                    .disabled(game.currentlyRolling ? false : true)
-
-                    Button("End Turn") {
-                        game.swapRoles()
-                    }
-                    .disabled(game.currentlyRolling ? false : true)
-                    
-                    Button("End Game") {
-                        game.endMatch()
-                    }
-                    
-                    Button("Forfeit") {
-                        game.forfeitMatch()
-                    }
+                    .frame(width: UIScreen.main.bounds.width, height: 200)
+                    .padding([.top], 330)
                 }
                 
+                HStack {
+                    if game.canSave && game.currentlyRolling {
+                        Button {
+                            game.saveScore()
+                        } label: {
+                            Text("Save")
+                                .frame(width: 150, height: 70)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(10)
+                                .font(.headline)
+                                .padding(.trailing, 50)
+                        }
+                    }
+                    
+                    if game.canRoll && game.currentlyRolling {
+                        Button {
+                            game.roll()
+                        } label: {
+                            Image(systemName: "dice.fill")
+                                .font(.system(size: 60))
+                                .frame(width: 100, height: 100)
+                                .background(Color.blue)
+                                .foregroundColor(.white)
+                                .cornerRadius(50)
+                        }
+                    }
+                }
             }
+            .background(
+                Image("background-roll")
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+            )
+            .alert("Game Over", isPresented: $game.youForfeit, actions: {
+                Button("OK", role: .cancel) {
+                    game.resetMatch()
+                }
+            }, message: {
+                Text("You forfeit. Opponent wins.")
+            })
+            .alert("Game Over", isPresented: $game.opponentForfeit, actions: {
+                Button("OK", role: .cancel) {
+                    // Save the score when the opponent forfeits the game.
+                    game.saveScore()
+                    game.resetMatch()
+                }
+            }, message: {
+                Text("Opponent forfeits. You win.")
+            })
+            .alert("Game Over", isPresented: $game.youWon, actions: {
+                Button("OK", role: .cancel) {
+                    //  Save the score when the local player wins.
+                    game.saveScore()
+                    game.resetMatch()
+                }
+            }, message: {
+                Text("You win.")
+            })
+            .alert("Game Over", isPresented: $game.opponentWon, actions: {
+                Button("OK", role: .cancel) {
+                    game.resetMatch()
+                }
+            }, message: {
+                Text("You lose.")
+            })
         }
-        .alert("Game Over", isPresented: $game.youForfeit, actions: {
-            Button("OK", role: .cancel) {
-                game.resetMatch()
-            }
-        }, message: {
-            Text("You forfeit. Opponent wins.")
-        })
-        .alert("Game Over", isPresented: $game.opponentForfeit, actions: {
-            Button("OK", role: .cancel) {
-                // Save the score when the opponent forfeits the game.
-                game.saveScore()
-                game.resetMatch()
-            }
-        }, message: {
-            Text("Opponent forfeits. You win.")
-        })
-        .alert("Game Over", isPresented: $game.youWon, actions: {
-            Button("OK", role: .cancel) {
-                //  Save the score when the local player wins.
-                game.saveScore()
-                game.resetMatch()
-            }
-        }, message: {
-            Text("You win.")
-        })
-        .alert("Game Over", isPresented: $game.opponentWon, actions: {
-            Button("OK", role: .cancel) {
-                game.resetMatch()
-            }
-        }, message: {
-            Text("You lose.")
-        })
-    }    
+        
+        if game.zonk {
+            ZonkView()
+                .onAppear {
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                        game.itIsZonk()
+                    }
+                }
+        }
+    }
 }
 
 
 #Preview {
-    MultiplayerRollView(game: MatchManager())
+    let game = MatchManager()
+    game.currentlyRolling = true
+    
+    return MultiplayerRollView(game: game)
 }

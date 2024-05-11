@@ -77,6 +77,21 @@ struct MainView: View {
     }
 }
 
+struct BorderButtonModifier: ViewModifier {
+    let borderColor: Color
+    
+    func body(content: Content) -> some View {
+        content
+            .foregroundStyle(.white)
+            .font(.title3)
+            .fontWeight(.bold)
+            .frame(width: 150)
+            .padding(.vertical, 20)
+            .padding(.horizontal, 70)
+    }
+}
+
+
 #Preview {
     MainView()
 }

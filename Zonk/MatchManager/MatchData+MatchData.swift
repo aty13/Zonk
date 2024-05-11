@@ -10,14 +10,18 @@ import GameKit
 import SwiftUI
 
 // MARK: Game Data Objects
-
 struct GameData: Codable {
+    var code: String?
     var matchName: String
     var playerName: String
     var nextPlayer: Bool?
     var score: Int?
     var message: String?
     var outcome: String?
+    var unsavedResult: Int?
+    var currentRoll: [Dice]?
+    var chosenDices: [Dice]?
+    var zonks: Int?
 }
 
 extension MatchManager {
@@ -26,15 +30,51 @@ extension MatchManager {
     
     /// Creates a data representation of the local player's score for sending to other players.
     ///
-    /// - Returns: A representation of game data that contains only the score.
-    func encode(score: Int) -> Data? {
-        let gameData = GameData(matchName: matchName, playerName: GKLocalPlayer.local.displayName, score: score, message: nil, outcome: nil)
+    
+    /// - Returns: Game data with current Game state
+    func encode(unsavedResult: Int, currentRoll: [Dice], chosenDices: [Dice]) -> Data? {
+        let gameData = GameData(
+            code: "pick",
+            matchName: matchName,
+            playerName: GKLocalPlayer.local.displayName,
+            nextPlayer: true,
+            score: nil,
+            message: nil,
+            outcome: nil,
+            unsavedResult: unsavedResult,
+            currentRoll: currentRoll,
+            chosenDices: chosenDices,
+            zonks: nil
+        )
+        
         return encode(gameData: gameData)
     }
     
-    /// - Returns: A representation of game data that contains only the score.
-    func encode(nextPlayer: Bool) -> Data? {
-        let gameData = GameData(matchName: matchName, playerName: GKLocalPlayer.local.displayName, nextPlayer: true, score: nil, message: nil, outcome: nil)
+    /// - Returns: A representation of game data that contains the score and next player flag.
+    func encode(score: Int, nextPlayer: Bool) -> Data? {
+        let gameData = GameData(
+            code: "save",
+            matchName: matchName,
+            playerName: GKLocalPlayer.local.displayName,
+            score: score,
+            message: nil,
+            outcome: nil
+        )
+        return encode(gameData: gameData)
+    }
+    
+    /// - Returns: A representation of game data that contains the score and next player flag.
+    func encode(score: Int, nextPlayer: Bool, zonks: Int) -> Data? {
+        let gameData = GameData(
+            code: "zonk",
+            matchName: matchName,
+            playerName: GKLocalPlayer.local.displayName,
+            nextPlayer: true,
+            score: score,
+            message: nil,
+            outcome: nil,
+            zonks: zonks
+        )
         return encode(gameData: gameData)
     }
     
@@ -43,7 +83,14 @@ extension MatchManager {
     /// - Parameter message: The message that the local player enters.
     /// - Returns: A representation of game data that contains only a message.
     func encode(message: String?) -> Data? {
-        let gameData = GameData(matchName: matchName, playerName: GKLocalPlayer.local.displayName, score: nil, message: message, outcome: nil)
+        let gameData = GameData(
+            code: "message",
+            matchName: matchName,
+            playerName: GKLocalPlayer.local.displayName,
+            score: nil,
+            message: message,
+            outcome: nil
+        )
         return encode(gameData: gameData)
     }
     
