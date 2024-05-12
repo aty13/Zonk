@@ -68,10 +68,14 @@ extension MatchManager: GKMatchDelegate {
                currentlyRolling = true
                
            case "zonk":
-               resetState()
+//               resetState()
+               currentRoll = []
+               unsavedResult = 0
+               chosenDicesShort = []
+               chosenDices = []
                
                opponentScore = gameData?.score ?? 0
-               opponentZonks = gameData?.zonks ?? 0               
+               opponentZonks = gameData?.zonks ?? 0
                currentlyRolling = true
                
            case "message":

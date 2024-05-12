@@ -56,6 +56,9 @@ struct MultiplayerScoreView: View {
                 Text("\(game.myScore)")
                     .foregroundStyle(.white)
             }
+            .padding(10)
+            .background(game.currentlyRolling ? .blue.opacity(0.9) : .clear)
+            .cornerRadius(10)
             
             HStack {
                 HStack {
@@ -77,7 +80,12 @@ struct MultiplayerScoreView: View {
                 Text("\(game.opponentScore)")
                     .foregroundStyle(.white)
             }
+            .padding(10)
+            .background(!game.currentlyRolling ? .blue.opacity(0.9) : .clear)
+            .cornerRadius(10)
+            
             HStack {
+
                 Text("Current run: \(game.unsavedResult)")
                     .font(.system(size: 17))
                     .fontWeight(.bold)
@@ -97,7 +105,7 @@ struct MultiplayerScoreView: View {
             .frame(minHeight: 30)
         }
         .padding()
-        .background(.blue.opacity(0.6))
+        .background(.blue.opacity(0.3))
         .cornerRadius(10)
         .padding()
         

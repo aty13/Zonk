@@ -159,9 +159,11 @@ extension MatchManager {
     func saveScore() {
 
         myScore += unsavedResult
-        
+        saveScoreToLeaderboard()
         myZonks = 0
-
+        
+        resetState()
+        
         if myScore >= winScore {
            youWon = true
         }

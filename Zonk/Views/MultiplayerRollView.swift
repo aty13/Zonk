@@ -23,19 +23,23 @@ struct MultiplayerRollView: View {
                 GeometryReader { geometry in
                     MultiplayerScoreView(game: game)
                         .padding(.top, -20)
+                    
                     LazyVGrid(columns: [GridItem(), GridItem()]) {
                         ForEach(game.currentRoll) { dice in
                             DiceView(dice: dice, size: CGSize(width: 80, height: 80))
                                 .onTapGesture {
-                                    game.handleDiceTap(dice)
+                                    if game.currentlyRolling {
+                                        game.handleDiceTap(dice)
+                                    }
                                 }
                                 .rotationEffect(.degrees(Double.random(in: 0...360)))
                                 .padding()
-                            
                         }
                     }
                     .frame(width: UIScreen.main.bounds.width, height: 200)
-                    .padding([.top], 330)
+                    .padding([.top], 360)
+                    
+                    
                 }
                 
                 HStack {
@@ -89,7 +93,7 @@ struct MultiplayerRollView: View {
             }, message: {
                 Text("Opponent forfeits. You win.")
             })
-            .alert("Game Over", isPresented: $game.youWon, actions: {
+            .alert("Game Over\nYou Won!", isPresented: $game.youWon, actions: {
                 Button("OK", role: .cancel) {
                     //  Save the score when the local player wins.
                     game.saveScore()
@@ -98,25 +102,27 @@ struct MultiplayerRollView: View {
             }, message: {
                 Text("You win.")
             })
-            .alert("Game Over", isPresented: $game.opponentWon, actions: {
+            .alert("Game Over\n\(game.opponentName) Won :(", isPresented: $game.opponentWon, actions: {
                 Button("OK", role: .cancel) {
                     game.resetMatch()
                 }
             }, message: {
                 Text("You lose.")
             })
+            
+            if game.zonk {
+                ZonkView()
+                    .onAppear {
+                        
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                            game.itIsZonk()
+                        }
+                    }
+            }
         }
         
-        if game.zonk {
-            ZonkView()
-                .onAppear {
-                    
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                        game.itIsZonk()
-                    }
-                }
-        }
     }
+    
 }
 
 
