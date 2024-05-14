@@ -52,6 +52,11 @@ struct MainView: View {
                 }
                 .disabled(!game.matchAvailable)
                 
+                Text(game.authenticationState.rawValue)
+                    .font(.headline.weight(.semibold))
+                    .foregroundColor(.white)
+                    .padding()
+                
                 Spacer()
             }
             .frame(maxWidth: .infinity)

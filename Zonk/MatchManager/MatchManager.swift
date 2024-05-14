@@ -16,6 +16,7 @@ class MatchManager: NSObject, ObservableObject {
     //    @Published var friends: [Friend] = []
     
     // The game interface state.
+    @Published var authenticationState = PlayerAuthState.authenticating
     @Published var matchAvailable = false
     @Published var playingGame = false
     @Published var myMatch: GKMatch? = nil
@@ -97,9 +98,21 @@ class MatchManager: NSObject, ObservableObject {
                 return
             }
             if let error {
+                self.authenticationState = .error
+                
                 // If you can’t authenticate the player, disable Game Center features in your game.
                 print("Error: \(error.localizedDescription).")
                 return
+            }
+            
+            if GKLocalPlayer.local.isAuthenticated {
+                if GKLocalPlayer.local.isMultiplayerGamingRestricted {
+                    self.authenticationState = .restricted
+                } else {
+                    self.authenticationState = .authenticated
+                }
+            } else {
+                self.authenticationState = .unauthenticated
             }
             
             // A value of nil for viewController indicates successful authentication, and you can access
@@ -120,10 +133,11 @@ class MatchManager: NSObject, ObservableObject {
             GKLocalPlayer.local.register(self)
             
             // Add an access point to the interface.
-            GKAccessPoint.shared.location = .topLeading
-            GKAccessPoint.shared.showHighlights = true
-            GKAccessPoint.shared.isActive = true
-            
+            /// TODO: return later
+            //            GKAccessPoint.shared.location = .topLeading
+            //            GKAccessPoint.shared.showHighlights = true
+            //            GKAccessPoint.shared.isActive = true
+            //
             
             // Enable the Start Game button.
             self.matchAvailable = true
@@ -202,7 +216,7 @@ class MatchManager: NSObject, ObservableObject {
                 }
             }
         }
-                
+        
         currentlyRolling = myId < opponentId
         
         // Increment the achievement to play 10 games.
@@ -210,7 +224,7 @@ class MatchManager: NSObject, ObservableObject {
     
     /// - Tag: Rolled
     func rollOrDiceTapped() {
-
+        
         do {
             let data = encode(
                 unsavedResult: unsavedResult,
@@ -218,7 +232,7 @@ class MatchManager: NSObject, ObservableObject {
                 chosenDices: chosenDices
             )
             
-            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.reliable)
         } catch {
             print("Error: \(error.localizedDescription).")
         }
@@ -226,12 +240,12 @@ class MatchManager: NSObject, ObservableObject {
     
     /// - Tag: Save tapped
     func saveButtonTapped() {
-
+        
         do {
             let data = encode(
                 score: myScore, nextPlayer: true
             )
-            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.reliable)
             
             currentlyRolling = !currentlyRolling
             
@@ -242,13 +256,14 @@ class MatchManager: NSObject, ObservableObject {
         }
     }
     
+    /// Zonk!
     func zonkHappened() {
         do {
             let data = encode(
                 score: myScore, nextPlayer: true, zonks: myZonks
             )
             
-            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.reliable)
             
             currentlyRolling = !currentlyRolling
             
@@ -268,7 +283,7 @@ class MatchManager: NSObject, ObservableObject {
         // Notify the opponent that they won or lost, depending on the score.
         do {
             let data = encode(outcome: opponentOutcome)
-            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.unreliable)
+            try myMatch?.sendData(toAllPlayers: data!, with: GKMatch.SendDataMode.reliable)
         } catch {
             print("Error: \(error.localizedDescription).")
         }

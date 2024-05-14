@@ -177,6 +177,8 @@ extension MatchManager {
         canRoll = true
         
         saveButtonTapped()
+        
+        endMatch()
     }
     
     func restart() {
