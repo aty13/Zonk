@@ -166,6 +166,7 @@ extension MatchManager {
         
         if myScore >= winScore {
            youWon = true
+           endMatch()
         }
 
         unsavedResult = 0
@@ -178,7 +179,7 @@ extension MatchManager {
         
         saveButtonTapped()
         
-        endMatch()
+        
     }
     
     func restart() {
